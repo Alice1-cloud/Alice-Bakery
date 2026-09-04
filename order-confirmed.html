@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Confirmed | Alice's Bakery</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="order-confirmed">
+
+        <div class="confirmation-card">
+
+            <div class="confirmation-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <p class="section-label">THANK YOU</p>
+
+            <h1>Order Confirmed!</h1>
+
+            <p class="confirmation-text">
+                Your delicious order has been received.
+                We can't wait to prepare something sweet for you!
+            </p>
+
+            <div class="order-number">
+                <span>Order Number</span>
+                <strong id="order-number">#ALB-2026</strong>
+            </div>
+
+            <a href="cakes.html" class="back-to-cakes">
+                CONTINUE SHOPPING
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </main>
+
+       <script>
+
+const orderNumber =
+    "ALB-" + Math.floor(100000 + Math.random() * 900000);
+
+document.getElementById("order-number").textContent = "#" + orderNumber;
+
+/* =====================================
+   EMPTY CART AFTER ORDER CONFIRMATION
+===================================== */
+
+localStorage.removeItem("cart");
+
+       
+
+</script>
+  
+      <script>
+(function () {
+
+    const savedTheme =
+        localStorage.getItem("aliceTheme") || "light";
+
+    document.body.classList.add(
+        "theme-" + savedTheme
+    );
+
+})();
+</script>
+  
+  
+</body>
+
+</html>

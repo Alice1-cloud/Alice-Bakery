@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Cakes | Alice's Bakery</title>  
+
+<link rel="stylesheet" href="Style.css">  
+
+<link rel="stylesheet"  
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>  
+
+  <body>
+
+    <body>
+
+<!-- CART ICON -->
+<a href="cart.html" class="cakes-cart">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cakesCartCount">0</span>
+</a>
+
+<a href="index.html" class="cakes-back-btn">
+    <i class="fa-solid fa-arrow-left"></i>
+    Back to Home
+</a>
+
+    <a href="index.html" class="cakes-back-btn">
+    <i class="fa-solid fa-arrow-left"></i>
+    Back to Home
+</a>
+
+    
+
+<!-- =========================  
+ CAKES PAGE HERO
+
+========================= -->
+
+<section class="cakes-page-hero">  <p class="section-label">OUR CAKES</p>  
+
+<h1>Sweetness Made<br><span>Just for You</span></h1>  
+
+<p>  
+    Explore our collection of beautifully handcrafted cakes,  
+    baked fresh with love for every special occasion.  
+</p>
+
+</section>     <section class="cake-categories">  <button type="button" class="category active" onclick="filterCakes('all')">  
+    ALL CAKES  
+</button>  
+
+<button type="button" class="category" onclick="filterCakes('birthday')">  
+    BIRTHDAY  
+</button>  
+
+<button type="button" class="category" onclick="filterCakes('wedding')">  
+    WEDDING  
+</button>  
+
+<button type="button" class="category" onclick="filterCakes('chocolate')">  
+    CHOCOLATE  
+</button>  
+
+<button type="button" class="category" onclick="filterCakes('vanilla')">  
+    VANILLA  
+</button>  
+
+<button type="button" class="category" onclick="filterCakes('red-velvet')">  
+    RED VELVET  
+</button>
+
+<button type="button" class="category" onclick="filterCakes('strawberry')">
+    STRAWBERRY
+</button>
+
+<button type="button" class="category" onclick="filterCakes('cupcakes')">
+    CUPCAKES
+</button>
+  
+</section>     <!-- =========================  
+     CAKE COLLECTION  
+========================= -->  <section class="cake-collection">  <div class="cake-grid">  
+
+    <div class="cake-card" data-category="vanilla">  
+        <img src="vanillacake.png" alt="Vanilla Cake">  
+        <p class="cake-name">Vanilla Dream</p> 
+        <p class="cake-description">Rich cream frosting.</p>
+        <p class="cake-price">₦21,000</p>  
+        <button class="add-cart" onclick="addToCart('Vanilla Dream')">+</button>  
+    </div>  
+
+    <div class="cake-card" data-category="chocolate">  
+        <img src="chocolatecake.png" alt="Chocolate Cake">  
+        <p class="cake-name">Chocolate Delight</p>
+        <p class="cake-description">Deeply chocolatey.</p>
+        <p class="cake-price">₦25,000</p>  
+        <button class="add-cart" onclick="addToCart('Chocolate Delight')">+</button>  
+    </div>  
+
+    <div class="cake-card" data-category="red-velvet">  
+        <img src="redvelvetcake.png" alt="Red Velvet Cake">  
+        <p class="cake-name">Red Luxe</p> 
+        <p class="cake-description">Mild chocolate mixed with vanilla.</p>
+        <p class="cake-price">₦27,000</p>  
+        <button class="add-cart" onclick="addToCart('Red Luxe')">+</button>  
+    </div>  
+
+      <div class="cake-card" data-category="birthday">  
+        <img src="Birthdaycake.png" alt="Birthday cake">  
+        <p class="cake-name">pink delight</p> 
+        <p class="cake-description">A classic strawberry flavoured cake.</p>
+        <p class="cake-price">₦26,000</p>  
+        <button class="add-cart" onclick="addToCart('pink delight')">+</button>  
+    </div> 
+
+    <div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake.png" alt="Wedding cake">  
+        <p class="cake-name"> Rose Cascade</p> 
+        <p class="cake-description">Fluffy vanilla bean sponge layered cake.</p>
+        <p class="cake-price">₦31,000</p>  
+        <button class="add-cart" onclick="addToCart('Rose Cascade')">+</button>  
+    </div> 
+
+    <div class="cake-card" data-category="wedding">  
+        <img src="Ivoryblossom1.jpg" alt="Wedding cake">  
+        <p class="cake-name"> Ivory Blossom</p> 
+        <p class="cake-description">Moist vanilla bean sponge with madagascar vanilla cream.</p>
+        <p class="cake-price">₦35,000</p>  
+        <button class="add-cart" onclick="addToCart('Ivory Blossom')">+</button>  
+    </div>
+
+     
+    <div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake1.png" alt="Wedding cake">  
+        <p class="cake-name">Pink Velvet Dream </p> 
+        <p class="cake-description">sweet vanilla with a mild,pleasant tang from buttermilk.</p>
+        <p class="cake-price">₦45,000</p>  
+        <button class="add-cart" onclick="addToCart('Pink Velvet Dream')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="birthday">  
+        <img src="Pinkrosette.jpg" alt="Birthday cake">  
+        <p class="cake-name">Pink Rosette</p> 
+        <p class="cake-description">Fluffy sponge layers hugged,styled in a gorgeous floral pattern.</p>
+        <p class="cake-price">₦13,000</p>  
+        <button class="add-cart" onclick="addToCart('Pink Rosette')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="vanilla">  
+        <img src="Petalelegance.jpg" alt=" Vanilla cake">  
+        <p class="cake-name">Petal Elegance</p> 
+        <p class="cake-description">Delicate, thin-rolled  piped buttercream petals layered with creamy taste.</p>
+        <p class="cake-price">₦14,000</p>  
+        <button class="add-cart" onclick="addToCart('Petal Elegance')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="red-velvet">  
+        <img src="Redvelvet1.png" alt=" Vanilla cake">  
+        <p class="cake-name">Crimson Bean Bliss</p> 
+        <p class="cake-description">Creamy flavor with a touch of vanilla.</p>
+        <p class="cake-price">₦36,000</p>  
+        <button class="add-cart" onclick="addToCart('Crimson Bean Bliss')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="strawberry">  
+        <img src="strawberrycake.png" alt="strawberry cake">  
+        <p class="cake-name"> Berry Blast</p> 
+        <p class="cake-description">Strawberry flavoured with love.</p>
+        <p class="cake-price">₦32,000</p>  
+        <button class="add-cart" onclick="addToCart('Berry Blast')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="red-velvet">  
+        <img src="Redvelvet2.png" alt="Red velvet cake">  
+        <p class="cake-name">Crimson Vanilla</p> 
+        <p class="cake-description">Velvety red cake with a delicate vanilla finish.</p>
+        <p class="cake-price">₦25,000</p>  
+        <button class="add-cart" onclick="addToCart('Crimson Vanilla')">+</button>  
+   
+  </div>
+
+     <div class="cake-card" data-category="vanilla">  
+        <img src="Vanilla2.png" alt="Vanilla cake">  
+        <p class="cake-name">Golden Vanilla</p> 
+        <p class="cake-description">Soft, fluffy vanilla cake with a rich buttery finish.</p>
+        <p class="cake-price">₦16,000</p>  
+        <button class="add-cart" onclick="addToCart('Golden Vanilla')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="chocolate">  
+        <img src="Velvethorizon.jpg" alt="Chocolate cake">  
+        <p class="cake-name">Choco Berry Luxe</p> 
+        <p class="cake-description">Velvety chocolate sponge crowned with strawberries and smooth cream.</p>
+        <p class="cake-price">₦17,000</p>  
+        <button class="add-cart" onclick="addToCart('Choco Berry Luxe')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake10.png" alt="Wedding cake">  
+        <p class="cake-name">Timeless Love</p> 
+        <p class="cake-description">Soft, delicious layers crafted for a beautiful celebration of love.</p>
+        <p class="cake-price">₦17,000</p>  
+        <button class="add-cart" onclick="addToCart('Timeless Love')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="cupcakes">  
+        <img src="Vanillacake4.png" alt="cupcakes">  
+        <p class="cake-name">Vanilla Cloud</p> 
+        <p class="cake-description">Soft, fluffy vanilla cupcakes topped with smooth, creamy frosting.</p>
+        <p class="cake-price">₦6,000</p>  
+        <button class="add-cart" onclick="addToCart('Vanilla Cloud')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="strawberry">  
+        <img src="Strawberrysatin.jpg" alt="strawberry cakes">  
+        <p class="cake-name">Strawberry Satin</p> 
+        <p class="cake-description">A soft, silky cake with luscious strawberry cream.</p>
+        <p class="cake-price">₦24,000</p>  
+        <button class="add-cart" onclick="addToCart('Strawberry Satin')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="vanilla">  
+        <img src="Vanillacake5.png" alt="strawberry cakes">  
+        <p class="cake-name">Raspberry Silk</p> 
+        <p class="cake-description">Soft vanilla cake with a delicate raspberry cream filling.</p>
+        <p class="cake-price">₦20,000</p>  
+        <button class="add-cart" onclick="addToCart('Raspberry Silk')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="red-velvet">  
+        <img src="Redvelvet6.jpg" alt="Redvelvet cakes">  
+        <p class="cake-name">Ruby Dream</p> 
+        <p class="cake-description">Soft, moist red velvet with a sweet and creamy finish.</p>
+        <p class="cake-price">₦18,000</p>  
+        <button class="add-cart" onclick="addToCart('Ruby Dream')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="vanilla">  
+        <img src="Vanillacake7.png" alt="Vanilla cakes">  
+        <p class="cake-name">Strawberry Vanilla Royale</p> 
+        <p class="cake-description">Fluffy vanilla cake with a soft strawberry-infused finish.</p>
+        <p class="cake-price">₦23,000</p>  
+        <button class="add-cart" onclick="addToCart('Strawberry Vanilla Royale')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="vanilla">  
+        <img src="Crystalmeadow.jpg" alt="Vanilla cakes">  
+        <p class="cake-name">Crystal Meadow</p> 
+        <p class="cake-description">Vanilla cake with strawberry and blueberry on top.</p>
+        <p class="cake-price">₦20,000</p>  
+        <button class="add-cart" onclick="addToCart('Crystal Meadow')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="wedding">  
+        <img src="Goldensunsetblossom.jpg" alt="Wedding cakes">  
+        <p class="cake-name">Golden Sunset Blossom</p> 
+        <p class="cake-description">Fluffy vanilla cake and good for wedding occasion.</p>
+        <p class="cake-price">₦39,000</p>  
+        <button class="add-cart" onclick="addToCart('Golden Sunset Blossom')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="wedding">  
+        <img src="Lavenderlacegrandeur.jpg" alt="wedding cakes">  
+        <p class="cake-name">Lavender Grandeur</p> 
+        <p class="cake-description">Fluffy vanilla creamed flavored cake.</p>
+        <p class="cake-price">₦42,000</p>  
+        <button class="add-cart" onclick="addToCart('Lavender Grandeur')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="strawberry">  
+        <img src="Littleruby.jpg" alt="Strawberry cakes">  
+        <p class="cake-name">Little Ruby</p> 
+        <p class="cake-description">classic portable strawberry cake with vanilla taste.</p>
+        <p class="cake-price">₦12,000</p>  
+        <button class="add-cart" onclick="addToCart('Little Ruby')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="strawberry">  
+        <img src="Strawberrycake5.jpg" alt="Strawberry cakes">  
+        <p class="cake-name">Strawberry Royale</p> 
+        <p class="cake-description">Elegant strawberry cake finished with silky cream and juicy berries.</p>
+        <p class="cake-price">₦35,000</p>  
+        <button class="add-cart" onclick="addToCart('Strawberry Royale')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="vanilla">  
+        <img src="Vanilla8.jpg" alt="vanillacakes">  
+        <p class="cake-name">Berry Choco Dream</p> 
+        <p class="cake-description">Soft vanilla and rich chocolate layers topped with fresh strawberries and creamy frosting.</p>
+        <p class="cake-price">₦14,000</p>  
+        <button class="add-cart" onclick="addToCart('Berry Choco Dream')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="vanilla">  
+        <img src="Vanillacake1.png" alt="Vanilla cakes">  
+        <p class="cake-name">Golden Vanilla</p> 
+        <p class="cake-description">Soft, fluffy vanilla sponge with a rich, buttery finish.</p>
+        <p class="cake-price">₦23,000</p>  
+        <button class="add-cart" onclick="addToCart('Golden Vanilla')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="wedding">  
+        <img src="Vanillacake2.png" alt="Wedding cakes">  
+        <p class="cake-name">Blueberry Pearl</p> 
+        <p class="cake-description">Delicate vanilla layers with a hint of blueberry.</p>
+        <p class="cake-price">₦47,000</p>  
+        <button class="add-cart" onclick="addToCart('Blueberry Pearl')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="vanilla">  
+        <img src="Vanillacake3.png" alt="Vanilla cakes">  
+        <p class="cake-name">Ivory Berry Bliss</p> 
+        <p class="cake-description">Classic vanilla sponge with luscious blueberry filling and a graceful finish.</p>
+        <p class="cake-price">₦32,000</p>  
+        <button class="add-cart" onclick="addToCart('Ivory Berry Bliss')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="chocolate">  
+        <img src="Weddingcake2.png" alt="Chocolate cakes">  
+        <p class="cake-name">Caramel Elegance</p> 
+        <p class="cake-description">A well-layered caramel cake for every occasion</p>
+        <p class="cake-price">₦42,000</p>  
+        <button class="add-cart" onclick="addToCart('Caramel Elegance')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="vanilla">  
+        <img src="Vanillacake6.png" alt="Vanilla cakes">  
+        <p class="cake-name">Golden Dream</p> 
+        <p class="cake-description">Soft, fluffy vanilla cake with a rich buttery finish.</p>
+        <p class="cake-price">₦26,000</p>  
+        <button class="add-cart" onclick="addToCart('Golden Dream')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="vanilla">  
+        <img src="Vanillacake8.png" alt="Vanilla cakes">  
+        <p class="cake-name">Choco Vanilla Velvet</p> 
+        <p class="cake-description">Light vanilla sponge layered with creamy chocolate frosting.</p>
+        <p class="cake-price">₦29,000</p>  
+        <button class="add-cart" onclick="addToCart('Choco Vanilla Velvet')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="vanilla">  
+        <img src="Vanillacake9.jpg" alt="Vanilla cakes">  
+        <p class="cake-name">Vanilla Rose</p> 
+        <p class="cake-description">Classic vanilla cake with a subtle, sweet strawberry flavor.</p>
+        <p class="cake-price">₦21,000</p>  
+        <button class="add-cart" onclick="addToCart('Vanilla Rose')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="vanilla">  
+        <img src="Vanillacake9.png" alt="Vanilla cakes">  
+        <p class="cake-name">Chocolate Kiss</p> 
+        <p class="cake-description">Fluffy vanilla sponge kissed with rich chocolate and smooth cream.</p>
+        <p class="cake-price">₦36,000</p>  
+        <button class="add-cart" onclick="addToCart('Chocolate Kiss')">+</button>  
+    </div>
+
+  
+  <div class="cake-card" data-category="strawberry">  
+        <img src="Vanillacake7.png" alt="Vanilla cakes">  
+        <p class="cake-name">Strawberry Vanilla Royale</p> 
+        <p class="cake-description">Fluffy vanilla cake with a soft strawberry-infused finish.</p>
+        <p class="cake-price">₦23,000</p>  
+        <button class="add-cart" onclick="addToCart('Strawberry Vanilla Royale')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="chocolate">  
+        <img src="Weddingcake16.jpg" alt="Chocolate cakes">  
+        <p class="cake-name">Choco Dreams</p> 
+        <p class="cake-description">A layered choco and vanilla flavoured cake.</p>
+        <p class="cake-price">₦49,000</p>  
+        <button class="add-cart" onclick="addToCart('Choco Dreams')">+</button>  
+    </div>
+
+  
+  <div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake11.jpg" alt="Wedding cakes">  
+        <p class="cake-name">Vanilla Luxe</p> 
+        <p class="cake-description">vanilla flavored with love</p>
+        <p class="cake-price">₦37,000</p>  
+        <button class="add-cart" onclick="addToCart('Vanilla Luxe')">+</button>  
+    </div>
+
+<div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake12.jpg" alt="Wedding cakes">  
+        <p class="cake-name">Strawberry Blossom</p> 
+        <p class="cake-description">Tender strawberry layers finished with creamy frosting and delicate floral details.</p>
+        <p class="cake-price">₦35,000</p>  
+        <button class="add-cart" onclick="addToCart('Strawberry Blossom')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake14.jpg" alt="Wedding cakes">  
+        <p class="cake-name">Berry Choco Pearls</p> 
+        <p class="cake-description">Fluffy strawberry layers complemented by rich chocolate and smooth frosting.</p>
+        <p class="cake-price">₦48,000</p>  
+        <button class="add-cart" onclick="addToCart('Berry Choco Pearls')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake15.jpg" alt="Wedding cakes">  
+        <p class="cake-name">Ivory Royal Romance</p> 
+        <p class="cake-description">A stunning four-tier vanilla cake adorned with delicate white roses.</p>
+        <p class="cake-price">₦50,000</p>  
+        <button class="add-cart" onclick="addToCart('Ivory Royal Romance')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="chocolate">  
+        <img src="Weddingcake6.png" alt="Wedding cakes">  
+        <p class="cake-name">Golden Caramel</p> 
+        <p class="cake-description">A soft, moist vanilla cake layered with smooth, buttery caramel cream.</p>
+        <p class="cake-price">₦45,000</p>  
+        <button class="add-cart" onclick="addToCart('Golden Caramel ')">+</button>  
+    </div>
+  
+
+  <div class="cake-card" data-category="red-velvet">  
+        <img src="Weddingcake5.png" alt="Wedding cakes">  
+        <p class="cake-name">Vanilla Velvet</p> 
+        <p class="cake-description">A fluffy vanilla cake attached with red-velvet </p>
+        <p class="cake-price">₦43,000</p>  
+        <button class="add-cart" onclick="addToCart('Vanilla Velvet')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake16.jpg" alt="Wedding cakes">  
+        <p class="cake-name">Chocolate Rose Vanilla</p> 
+        <p class="cake-description">A luxurious two-tier vanilla and a touch of choco.</p>
+        <p class="cake-price">₦50,000</p>  
+        <button class="add-cart" onclick="addToCart('Chocolate Rose Vanilla')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake2.png" alt="Wedding cakes">  
+        <p class="cake-name">Caramel Bliss</p> 
+        <p class="cake-description">A sweet moist,caramel cake.</p>
+        <p class="cake-price">₦43,000</p>  
+        <button class="add-cart" onclick="addToCart('Caramel Bliss')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake3.png" alt="Wedding cakes">  
+        <p class="cake-name">Lemon Romance</p> 
+        <p class="cake-description">luxurious layered vanilla cake with a little lemon flavor.</p>
+        <p class="cake-price">₦46,000</p>  
+        <button class="add-cart" onclick="addToCart('Lemon Romance')">+</button>  
+    </div>
+
+<div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake5.png" alt="Wedding cakes">  
+        <p class="cake-name">Vanilla Velvet</p> 
+        <p class="cake-description">A fluffy vanilla cake attached with red-velvet.</p>
+        <p class="cake-price">₦43,000</p>  
+        <button class="add-cart" onclick="addToCart('Vanilla Velvet')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake6.png" alt="Wedding cakes">  
+        <p class="cake-name">Golden Caramel</p> 
+        <p class="cake-description">A soft, moist vanilla cake layered with smooth, buttery caramel cream.</p>
+        <p class="cake-price">₦45,000</p>  
+        <button class="add-cart" onclick="addToCart('Golden Caramel')">+</button>  
+    </div>
+
+<div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake7.png" alt="Wedding cakes">  
+        <p class="cake-name">Peony Pearl</p> 
+        <p class="cake-description">A luxurious multi-tier vanilla cake adorned with delicate blush-pink blossoms.</p>
+        <p class="cake-price">₦42,000</p>  
+        <button class="add-cart" onclick="addToCart('Peony Pearl')">+</button>  
+    </div>
+
+ <div class="cake-card" data-category="wedding">  
+        <img src="Weddingcake9.png" alt="Wedding cakes">  
+        <p class="cake-name">Bridal Elegance</p> 
+        <p class="cake-description">A creamy vanilla and strawberry cake.</p>
+        <p class="cake-price">₦52,000</p>  
+        <button class="add-cart" onclick="addToCart('Bridal Elegance')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="cupcakes">  
+        <img src="Berryblush.png" alt="cupcakes">  
+        <p class="cake-name">Berry Blush</p> 
+        <p class="cake-description">Soft strawberry cupcakes topped with silky strawberry cream.</p>
+        <p class="cake-price">₦6,500</p>  
+        <button class="add-cart" onclick="addToCart('Berry Blush')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="cupcakes">  
+        <img src="Berryveil.png" alt="cupcakes">  
+        <p class="cake-name">Berry Veil</p> 
+        <p class="cake-description">Soft strawberry cupcakes with vanilla and strawberry cream.</p>
+        <p class="cake-price">₦8,000</p>  
+        <button class="add-cart" onclick="addToCart('Berry Veil')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="red-velvet">  
+        <img src="Blueberryroyale.png" alt ="Redvelvet cakes">
+        <p class="cake-name">Blueberry Royale</p>
+        <p class="cake-description">A stunning two-layered red-velvet cake with berries and creamy swirls</p>
+        <p class="cake-price">₦28,000</p>  
+        <button class="add-cart" onclick="addToCart('Blueberry Royale')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="cupcakes">  
+        <img src="Bluebliss.png" alt ="Cupcakes">
+        <p class="cake-name">Blue Bliss</p>
+        <p class="cake-description">Soft vanilla creamed cupcakes with juicy blueberry flavor.</p>
+        <p class="cake-price">₦5,500</p>  
+        <button class="add-cart" onclick="addToCart('Blue Bliss')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="chocolate">  
+        <img src="Cocoalumi.png" alt ="Chocolate cakes">
+        <p class="cake-name">Cocoa Lumi</p>
+        <p class="cake-description">Four rich chocolate layers paired with silky vanilla cream and chocolate drips</p>
+        <p class="cake-price">₦37,000</p>  
+        <button class="add-cart" onclick="addToCart('Cocoa Lumi')">+</button>  
+    </div>
+
+ <div class="cake-card" data-category="birthday">  
+        <img src="Bluemyst.png" alt ="Birthday cakes">
+        <p class="cake-name">Bluemyst</p>
+        <p class="cake-description">Four layers of moist vanilla and juicy blueberry.</p>
+        <p class="cake-price">₦42,000</p>  
+        <button class="add-cart" onclick="addToCart('Bluemyst')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="birthday">  
+        <img src="Bluestraw.png" alt ="Birthday cakes">
+        <p class="cake-name">Blue Straw</p>
+        <p class="cake-description"> Juicy strawberry flavored cake topped with blue berries fruit.</p>
+        <p class="cake-price">₦29,000</p>  
+        <button class="add-cart" onclick="addToCart('Blue Straw')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="red-velvet">  
+        <img src="Bluevelvet.png" alt ="Redvelvet cakes">
+        <p class="cake-name">Blue Velvet</p>
+        <p class="cake-description">A luxurious red-velvet cake infused with juicy blue berry and vanilla.</p>
+        <p class="cake-price">₦33,000</p>  
+        <button class="add-cart" onclick="addToCart('Blue')">+</button>  
+  </div>
+
+   <div class="cake-card" data-category="birthday">  
+        <img src="Chocoberrybliss.png" alt ="Birthday cakes">
+        <p class="cake-name">Chocoberry Bliss</p>
+        <p class="cake-description">Rich strawberry cake with rich chcolate cream.</p>
+        <p class="cake-price">₦38,000</p>  
+        <button class="add-cart" onclick="addToCart('Chocoberry Bliss')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="red-velvet">  
+        <img src="Chocovelvetluxe.png" alt ="Redvelvet cakes">
+        <p class="cake-name">Chocovelvet Luxe</p>
+        <p class="cake-description">A stunning two-layered red-velvet cake with berries and creamy swirls.</p>
+        <p class="cake-price">₦36,500</p>  
+        <button class="add-cart" onclick="addToCart('Chocovelvet Luxe')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="birthday">  
+        <img src="Cocoalumi.png" alt ="Birthday cakes">
+        <p class="cake-name">Cocoa Lumi</p>
+        <p class="cake-description">Four rich chocolate layers paired with silky vanilla cream and chocolate drips.</p>
+        <p class="cake-price">₦37,000</p>  
+        <button class="add-cart" onclick="addToCart('Cocoa Lumi')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="cupcakes">  
+        <img src="Cocoaroyale.png" alt ="cupcakes">
+        <p class="cake-name">Cocoa Royale</p>
+        <p class="cake-description">Rich moist chocolate cupcakes with chocolate cream.</p>
+        <p class="cake-price">₦8,000</p>  
+        <button class="add-cart" onclick="addToCart('Cocoa Royale')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="chocolate">  
+        <img src="Crimsoncuddle.png" alt ="chocolate cakes">
+        <p class="cake-name">Crimson Cuddle</p>
+        <p class="cake-description">A small portable cake with rich red-velvet layers.</p>
+        <p class="cake-price">₦13,500</p>  
+        <button class="add-cart" onclick="addToCart('Crimson Cuddle')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="red-velvet">  
+        <img src="Redvelvetnoir.png" alt ="Red-velvet cakes">
+        <p class="cake-name">Red-velvet Noir</p>
+        <p class="cake-description">A red-velvet cake with a luxurious chocolate ganache and vanilla finish.</p>
+        <p class="cake-price">₦39,500</p>  
+        <button class="add-cart" onclick="addToCart('Red-velvet Noir')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="red-velvet">  
+        <img src="Rubycrown.png" alt ="Red-velvet cakes">
+        <p class="cake-name">Ruby Crown</p>
+        <p class="cake-description">Red-velvet paired with silky vanilla cream and fit for your celebration.</p>
+        <p class="cake-price">₦42,000</p>  
+        <button class="add-cart" onclick="addToCart('Ruby Crown')">+</button>  
+    </div>
+
+ <div class="cake-card" data-category="strawberry">  
+        <img src="Rosyberry.png" alt ="Strawberry cakes">
+        <p class="cake-name">Rosy Berry</p>
+        <p class="cake-description">A strawberry cake with soft delicate blueberry twist.</p>
+        <p class="cake-price">₦30,000</p>  
+        <button class="add-cart" onclick="addToCart('Rosy Berry')">+</button>  
+    </div>
+
+<div class="cake-card" data-category="cupcakes">  
+        <img src="Rubycream.png" alt ="Cupcakes">
+        <p class="cake-name">Ruby Cream</p>
+        <p class="cake-description">Moist red-velvet cupcakes with silky vanilla cream.</p>
+        <p class="cake-price">₦9,000</p>  
+        <button class="add-cart" onclick="addToCart('Ruby Cream')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="birthday">  
+        <img src="Rubycrown.png" alt ="birthday cakes">
+        <p class="cake-name">Ruby Crown</p>
+        <p class="cake-description">Red-velvet paired with silky vanilla cream and fit for your celebration.</p>
+        <p class="cake-price">₦42,000</p>  
+        <button class="add-cart" onclick="addToCart('Ruby Crown')">+</button>  
+    </div>
+  
+  <div class="cake-card" data-category="red-velvet">  
+        <img src="Rubyelan.png" alt ="Red-velvet cakes">
+        <p class="cake-name">Ruby Elan</p>
+        <p class="cake-description">A timeless red-velvet cake with silky yellow vanilla cream.</p>
+        <p class="cake-price">₦45,000</p>  
+        <button class="add-cart" onclick="addToCart('Ruby Elan')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="vanilla">  
+        <img src="Vanillawish.png" alt ="Vanilla cakes">
+        <p class="cake-name">Vanilla Wish</p>
+        <p class="cake-description">Vanilla flavored birthday cake.</p>
+        <p class="cake-price">₦32,000</p>  
+        <button class="add-cart" onclick="addToCart('Vanilla Wish')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="chocolate">  
+        <img src="Scarlettruffle.png" alt ="Chocolate cakes">
+        <p class="cake-name">Scarlet Truffle</p>
+        <p class="cake-description">Chocolate cake coated in silky chocolate frosting and fresh strawberries.</p>
+        <p class="cake-price">₦37,000</p>  
+        <button class="add-cart" onclick="addToCart('Scarlet Truffle')">+</button>  
+  </div>
+
+  <div class="cake-card" data-category="strawberry">  
+        <img src="Strawberrynoir.png" alt ="Strawberry cakes">
+        <p class="cake-name">Strawberry Noir</p>
+        <p class="cake-description">A long strawberry cake with rich chocolate sponge.</p>
+        <p class="cake-price">₦42,000</p>  
+        <button class="add-cart" onclick="addToCart('Strawberry Noir')">+</button>  
+    </div>
+
+ <div class="cake-card" data-category="red-velvet">  
+        <img src="Strawberryruby.png" alt ="red-velvet cakes">
+        <p class="cake-name">Strawberry Ruby</p>
+        <p class="cake-description">Rich red-velvet cake with sweet juicy strawberry filling and vanilla cream.</p>
+        <p class="cake-price">₦34,000</p>  
+        <button class="add-cart" onclick="addToCart('Strawberry Ruby')">+</button>  
+   </div>
+
+    <div class="cake-card" data-category="strawberry">  
+        <img src="Vaniberry.png" alt ="Strawberry cakes">
+        <p class="cake-name">Vaniberry</p>
+        <p class="cake-description">A simple yet elegant combination of fruity strawberry and vanilla flavor.</p>
+        <p class="cake-price">₦35,500</p>  
+        <button class="add-cart" onclick="addToCart('Vaniberry')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="cupcakes">  
+        <img src="Vanillamachaswirl.png" alt ="cupcakes">
+        <p class="cake-name">Vanilla Macha Swirl</p>
+        <p class="cake-description">Soft vanilla cupcakes layered with vanilla and chocolate cream.</p>
+        <p class="cake-price">₦5,500</p>  
+        <button class="add-cart" onclick="addToCart('Vanilla Macha Swirl')">+</button>  
+    </div>
+
+    <div class="cake-card" data-category="birthday">  
+        <img src="Vanillawish.png" alt ="Vanilla cakes">
+        <p class="cake-name">Vanilla Wish</p>
+        <p class="cake-description">Vanilla flavored birthday cake.</p>
+        <p class="cake-price">₦32,000</p>  
+        <button class="add-cart" onclick="addToCart('Vanilla Wish')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="strawberry">  
+        <img src="Velvetbloom.png" alt ="Strawberry cakes">
+        <p class="cake-name">Velvet Bloom</p>
+        <p class="cake-description">A strawberry cake with soft delicate red-velvet flavor.</p>
+        <p class="cake-price">₦45,500</p>  
+        <button class="add-cart" onclick="addToCart('Velvet Bloom')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="chocolate">  
+        <img src="Velvetbluemoon.png" alt ="Chocolate cakes">
+        <p class="cake-name">Velvet Bluemoon</p>
+        <p class="cake-description">A rich elegant chocolate cake paired with blueberry fruit on top and infused cream.</p>
+        <p class="cake-price">₦21,000</p>  
+        <button class="add-cart" onclick="addToCart('Velvet Bluemoon')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="cupcakes">  
+        <img src="Velvetduo.png" alt ="cupcakes">
+        <p class="cake-name">Velvet Duo</p>
+        <p class="cake-description">A delightful pairing of fluffy vanilla and rich chocolate cupcakes.</p>
+        <p class="cake-price">₦9,500</p>  
+        <button class="add-cart" onclick="addToCart('Velvet Duo')">+</button>  
+    </div>
+
+  <div class="cake-card" data-category="Chocolate">  
+        <img src="Velveteclipse.png" alt ="Chocolate cakes">
+        <p class="cake-name">Velvet Eclipse</p>
+        <p class="cake-description">Two layered chocolate masterpiece with smooth vanilla drip.</p>
+        <p class="cake-price">₦36,000</p>  
+        <button class="add-cart" onclick="addToCart('Velvet Eclipse')">+</button>  
+    </div>
+
+      <div class="cake-card" data-category="strawberry">  
+        <img src="Birthdaycake.png" alt="Strawberry cake">  
+        <p class="cake-name">Pink Delight</p> 
+        <p class="cake-description">A classic strawberry flavoured cake.</p>
+        <p class="cake-price">₦26,000</p>  
+        <button class="add-cart" onclick="addToCart('Pink Delight')">+</button>  
+    </div> 
+
+  <div class="cake-card" data-category="vanilla">  
+        <img src="Weddingcake5.png" alt="Vanilla cakes">  
+        <p class="cake-name">Vanilla Velvet</p> 
+        <p class="cake-description">A fluffy vanilla cake attached with red-velvet </p>
+        <p class="cake-price">₦43,000</p>  
+        <button class="add-cart" onclick="addToCart('Vanilla Velvet')">+</button>  
+    </div>
+  
+  
+</div>
+
+</section>
+    
+    <script>  
+  
+function filterCakes(category) {  
+  
+    const cakes = document.querySelectorAll(".cake-card");  
+  
+    cakes.forEach(function(cake) {  
+  
+        if (category === "all" || cake.dataset.category === category) {  
+  
+            cake.style.setProperty("display", "flex", "important");  
+  
+        } else {  
+  
+            cake.style.setProperty("display", "none", "important");  
+  
+        }  
+  
+    });  
+  
+}  
+
+     // Check if the page was opened with a category
+const categoryFromUrl = window.location.hash.substring(1);
+
+if (categoryFromUrl) {
+    filterCakes(categoryFromUrl);
+} 
+  
+let cart = JSON.parse(localStorage.getItem("cart")) || [];  
+  
+function addToCart(cakeName) {  
+  
+    const cakes = {  
+        "Vanilla Dream": {  
+            price: 21000,  
+            image: "vanillacake.png"  
+        },  
+  
+        "Chocolate Delight": {  
+            price: 25000,  
+            image: "chocolatecake.png"  
+        },  
+  
+        "Strawberry Bliss": {  
+            price: 28000,  
+            image: "images/strawberrycake.png"  
+        },  
+  
+        "Red Luxe": {  
+            price: 27000,  
+            image: "redvelvetcake.png"  
+        },  
+  
+        "pink delight": {  
+            price: 26000,  
+            image: "Birthdaycake.png"  
+        },
+
+          
+        "Vanilla Velvet": {  
+            price: 43000,  
+            image: "Weddingcake5.png"  
+        },
+
+     
+        "Rose Cascade": {  
+            price: 31000,  
+            image: "Weddingcake.png"  
+        },
+
+         "Ivory Blossom": {  
+            price: 35000,  
+            image: "images/Ivoryblossom1.jpg"  
+        },
+
+         "Pink Velvet Dream": {  
+            price: 45000,  
+            image: "Weddingcake1.png"  
+        },
+
+          "Pink Rosette": {  
+            price: 13000,  
+            image: "Pinkrosette.jpg"  
+        },
+      
+          "Petal Elegance": {  
+            price: 14000,  
+            image: "Petalelegance.jpg"  
+        },
+      
+         "Crimson Bean Bliss": {  
+            price: 36000,  
+            image: "Redvelvet1.png"  
+        },
+      
+         "Berry Blast": {  
+            price: 32000,  
+            image: "strawberrycake.png"  
+        },
+
+          "Crimson Vanilla": {  
+            price: 25000,  
+            image: "Redvelvet2.png"  
+        }, 
+
+         "Golden Vanilla": {  
+            price: 16000,  
+            image: "Vanilla2.png"  
+        },  
+
+          "Choco Berry Luxe": {  
+            price: 17000,  
+            image: "Velvethorizon.jpg"  
+        },
+
+         "Timeless Love": {  
+            price: 17000,  
+            image: "Weddingcake10.png"  
+        },
+
+          "Vanilla Cloud": {  
+            price: 6000,  
+            image: "Vanillacake4.png"  
+        },
+
+           "Strawberry Satin": {  
+            price: 24000,  
+            image: "Strawberrysatin.jpg"  
+        },
+
+         
+           "Raspberry Silk": {  
+            price: 20000,  
+            image: "Vanillacake5.png"  
+        }, 
+
+         "Ruby Dream": {  
+            price: 18000,  
+            image: "Redvelvet6.jpg"  
+        },
+
+        "Strawberry Vanilla Royale": {  
+            price:23000,  
+            image: "Vanillacake7.png"  
+        },
+
+        "Crystal Meadow": {  
+            price: 20000,  
+            image: "Crystalmeadow.jpg"  
+        },
+
+        "Golden Sunset Blossom": {  
+            price: 39000,  
+            image: "Goldensunsetblossom.jpg"  
+        },  
+
+          "Lavender Grandeur": {  
+            price: 42000,  
+            image: "Lavenderlacegrandeur.jpg"  
+        },
+
+          "Little Ruby": {  
+            price: 12000,  
+            image: "Littleruby.jpg"  
+        },
+
+           "Strawberry Royale": {  
+            price: 35000,  
+            image: "Strawberrycake5.jpg"  
+        },
+
+        "Berry Choco Dream": {  
+            price: 14000,  
+            image: "Vanilla8.jpg"  
+        },
+
+          "Golden Vanilla": {  
+            price: 23000,  
+            image: "Vanillacake1.png"  
+        },  
+
+         "Blueberry Pearl": {  
+            price: 47000,  
+            image: "Vanillacake2.png"  
+        },
+
+         "Ivory Berry Bliss": {  
+            price: 32000,  
+            image: "Vanillacake3.png"  
+        }, 
+
+         "Caramel Elegance": {  
+            price: 42000,  
+            image: "Weddingcake2.png"  
+        },
+
+          "Golden Dream": {  
+            price: 26000,  
+            image: "Vanillacake6.png"  
+        }, 
+
+          "Choco Vanilla Velvet": {  
+            price: 29000,  
+            image: "Vanillacake8.png"  
+        }, 
+      
+          "Vanilla Rose": {  
+            price: 21000,  
+            image: "Vanillacake9.jpg"  
+        }, 
+
+         
+          "Chocolate Kiss": {  
+            price: 36000,  
+            image: "Vanillacake9.png"  
+        }, 
+
+         
+          "Strawbery Vanilla Royale": {  
+            price: 23000,  
+            image: "Vanilla7.png"  
+        },   
+    
+           "Choco Dreams": {  
+            price: 49000,  
+            image: "Weddingcake16.jpg"  
+        }, 
+
+          "Vanilla Luxe": {  
+            price: 37000,  
+            image: "Weddingcake11.jpg"  
+        }, 
+
+          
+          "Strawberry Blossom": {  
+            price: 35000,  
+            image: "Weddingcake12.jpg"  
+        }, 
+
+          "Berry Choco Pearls": {  
+            price: 48000,  
+            image: "Weddingcake14.jpg"  
+        }, 
+
+          "Ivory Royal Romance": {  
+            price: 50000,  
+            image: "Weddingcake14.jpg"  
+        }, 
+
+           "Golden Caramel": {  
+            price: 45000,  
+            image: "Weddingcake6.jpg"  
+        },  
+
+            "Vanilla Velvet": {  
+            price: 43000,  
+            image: "Weddingcake5.png"  
+        }, 
+
+            "Chocolate Rose Vanilla": {  
+            price: 50000,  
+            image: "Weddingcake16.jpg"  
+        }, 
+
+           "Caramel Bliss": {  
+            price: 43000,  
+            image: "Weddingcake2.png"  
+        }, 
+
+           "Lemon Romance": {  
+            price: 46000,  
+            image: "Weddingcake3.png"  
+        }, 
+      
+            "Vanilla Velvet": {  
+            price: 43000,  
+            image: "Weddingcake5.png"  
+        },  
+
+           "Golden Caramel": {  
+            price: 45000,  
+            image: "Weddingcake6.png"  
+        }, 
+      
+           "Peony Pearl": {  
+            price: 42000,  
+            image: "Weddingcake7.png"  
+        }, 
+
+            "Bridal Elegance": {  
+             price: 52000,  
+             image: "Weddingcake9.png"  
+        },      
+
+             "Berry Blush": {  
+              price: 6500,  
+              image: "Berryblush.png"  
+        },      
+
+             "Berry Veil": {  
+              price: 8000,  
+              image: "Berryveil.png"  
+        },      
+
+              "Blueberry Royale": {  
+               price: 29000,  
+               image: "Blueberryroyale.png"  
+        },      
+ 
+              "Cocoa Lumi": {  
+               price: 37000,  
+               image: "Cocoalumi.png"  
+        },      
+      
+               "Blue Bliss": {  
+                price: 5500,  
+                image: "Bluebliss.png"  
+        },      
+
+               "Bluemyst": {  
+                price: 42000,  
+                image: "Bluemyst.png"  
+        },      
+      
+                "Blue Straw": {  
+                 price: 29000,  
+                 image: "Bluestraw.png"  
+        },      
+
+                 "Blue Velvet": {  
+                  price: 33000,  
+                  image: "Bluevelvet.png"  
+        },      
+
+                 "Chocoberry Bliss": {  
+                  price: 38000,  
+                  image: "Chocoberrybliss.png"  
+        },      
+
+                 "Chocovelvet Luxe": {  
+                  price: 36500,  
+                  image: "Chocovelvetluxe.png"  
+        },      
+
+                  "Cocoa Lumi": {  
+                   price: 37000,  
+                   image: "Cocoalumi.png"  
+        },      
+
+                  "Cocoa Royale": {  
+                   price: 8000,  
+                   image: "Cocoaroyale.png"  
+        },      
+
+                  "Crimson Cuddle": {  
+                   price: 13500,  
+                   image: "Crimsoncuddle.png"  
+        },      
+
+                  "Red-velvet Noir": {  
+                   price: 39500,  
+                   image: "Redvelvetnoir.png"  
+        },      
+
+                  "Ruby Crown": {  
+                   price: 42000,  
+                   image: "Rubycrown.png"  
+        },      
+   
+                  "Rosy Berry": {  
+                   price: 30000,  
+                   image: "Rosyberry.png"  
+        },      
+      
+                   "Ruby Cream": {  
+                    price: 9000,  
+                    image: "Rubycream.png"  
+        },      
+
+                    "Ruby Crown": {  
+                     price: 42000,  
+                     image: "Rubycrown.png"  
+        },      
+
+                    "Ruby Elan": {  
+                     price: 45000,  
+                     image: "Rubyelan.png"  
+        },      
+
+                    "Scarlet Truffle": {  
+                     price: 37000,  
+                     image: "Scarlettruffle.png"  
+        },      
+      
+                   "Strawberry Noir": {  
+                    price: 42000,  
+                    image: "Strawberrynoir.png"  
+        },      
+
+                  "Strawberry Ruby": {  
+                   price: 34000,  
+                   image: "Strawberryruby.png"  
+        },      
+
+                  "Vanilla Wish": {  
+                   price: 32000,  
+                   image: "Vanillawish.png"  
+        },      
+
+                  "Vaniberry": {  
+                   price: 35000,  
+                   image: "Vaniberry.png"  
+        },      
+ 
+                  "Vanilla Macha Swirl": {  
+                   price: 5500,  
+                   image: "Vanillamachaswirl.png"  
+        },      
+
+                   "Vanilla Wish": {  
+                    price: 32000,  
+                    image: "Vanillawish.png"  
+        },      
+
+                   "Velvet Bloom": {  
+                    price: 45500,  
+                    image: "Velvetbloom.png"  
+        },      
+      
+                   "Velvet Bluemoon": {  
+                    price: 21000,  
+                    image: "Velvetbluemoon.png"  
+        },      
+
+                  "Velvet Duo": {  
+                   price: 9500,  
+                   image: "Velvetduo.png"  
+        },       
+
+                   "Velvet Eclipse": {  
+                    price: 36000,  
+                    image: "Velveteclipse.png"  
+        },      
+      
+                   "Pink Delight": {  
+                    price: 26000,  
+                    image: "Birthdaycake.png"  
+        },      
+
+                   "Vanilla Velvet": {  
+                    price: 43000,  
+                    image: "Weddingcake5.png"  
+        },      
+         
+    };  
+  
+  
+    const cake = cakes[cakeName];  
+  
+    const existingCake = cart.find(function(item) {  
+        return item.name === cakeName;  
+    });  
+  
+    if (existingCake) {  
+  
+        existingCake.quantity++;  
+  
+    } else {  
+  
+        cart.push({  
+            name: cakeName,  
+            price: cake.price,  
+            image: cake.image,  
+            quantity: 1  
+        });  
+  
+    }  
+  
+         localStorage.setItem("cart", JSON.stringify(cart));  
+  
+    updateCartCount();  
+    showCartMessage(cakeName);  
+  
+}  
+  
+  function updateCartCount() {
+
+    const cartNumber = document.querySelector("#cakesCartCount");
+
+    if (!cartNumber) {
+        return;
+    }
+
+    let totalQuantity = 0;
+
+    cart.forEach(function(item) {
+        totalQuantity += item.quantity;
+    });
+
+    cartNumber.textContent = totalQuantity;
+}
+  
+  function showCartMessage(cakeName) {
+
+    const message = document.createElement("div");
+
+    message.className = "cart-message";
+
+    message.innerHTML = `
+        <i class="fa-solid fa-circle-check"></i>
+
+        <div>
+            <strong>Added to cart!</strong>
+            <span>${cakeName} has been added to your cart.</span>
+        </div>
+
+        <button onclick="this.parentElement.remove()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    `;
+
+    document.body.appendChild(message);
+
+    setTimeout(function() {
+        message.classList.add("hide");
+
+        setTimeout(function() {
+            message.remove();
+        }, 300);
+
+    }, 2500);
+}
+
+      function toggleFavorite(button, cakeName, price, image) {
+
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    const existingFavorite = favorites.find(function(item) {
+        return item.name === cakeName;
+    });
+
+    if (existingFavorite) {
+
+        favorites = favorites.filter(function(item) {
+            return item.name !== cakeName;
+        });
+
+        button.classList.remove("active");
+
+        button.innerHTML = `
+            <i class="fa-regular fa-heart"></i>
+        `;
+
+    } else {
+
+        favorites.push({
+            name: cakeName,
+            price: price,
+            image: image
+        });
+
+        button.classList.add("active");
+
+        button.innerHTML = `
+            <i class="fa-solid fa-heart"></i>
+        `;
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+}
+
+      function loadFavorites() {
+
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    const favoriteButtons = document.querySelectorAll(".favorite-btn");
+
+    favoriteButtons.forEach(function(button) {
+
+        const cakeName = button.dataset.name;
+
+        const isFavorite = favorites.some(function(item) {
+            return item.name === cakeName;
+        });
+
+        if (isFavorite) {
+
+            button.classList.add("active");
+
+            button.innerHTML = `
+                <i class="fa-solid fa-heart"></i>
+            `;
+
+        }
+
+    });
+}
+ 
+  
+
+ updateCartCount();
+loadFavorites();
+
+      function addFavoriteButtons() {
+
+    const cakeCards = document.querySelectorAll(".cake-card");
+
+    cakeCards.forEach(function(card) {
+
+        // Don't add another heart if one already exists
+        if (card.querySelector(".favorite-btn")) {
+            return;
+        }
+
+        const nameElement = card.querySelector(".cake-name");
+        const priceElement = card.querySelector(".cake-price");
+        const imageElement = card.querySelector("img");
+
+        if (!nameElement || !priceElement || !imageElement) {
+            return;
+        }
+
+        const cakeName = nameElement.textContent.trim();
+
+        const price = Number(
+            priceElement.textContent
+                .replace("₦", "")
+                .replace(/,/g, "")
+                .trim()
+        );
+
+        const image = imageElement.getAttribute("src");
+
+        const button = document.createElement("button");
+
+        button.className = "favorite-btn";
+        button.setAttribute("data-name", cakeName);
+
+        button.innerHTML = `
+            <i class="fa-regular fa-heart"></i>
+        `;
+
+        button.onclick = function() {
+            toggleFavorite(this, cakeName, price, image);
+        };
+
+        card.appendChild(button);
+    });
+
+    loadFavorites();
+}
+
+      updateCartCount();
+addFavoriteButtons();
+  
+  </script>
+
+      <script>
+(function () {
+
+    const savedTheme =
+        localStorage.getItem("aliceTheme") || "light";
+
+    document.body.classList.add(
+        "theme-" + savedTheme
+    );
+
+})();
+</script>
+  
+  </body> 
+
+</html>

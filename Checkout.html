@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | Alice's Bakery</title>
+
+    <!-- Your stylesheet -->
+    <link rel="stylesheet" href="Style.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         CHECKOUT PAGE
+    ====================================================== -->
+
+    <main class="checkout-page">
+
+
+        <!-- =================================================
+             CHECKOUT HEADER
+        ================================================== -->
+
+        <section class="checkout-header">
+
+            <p class="checkout-label">
+                CHECKOUT
+            </p>
+
+
+            <div class="checkout-decoration">
+
+                <span>♥</span>
+
+                <i></i>
+
+                <span></span>
+
+                <i></i>
+
+                <span>♥</span>
+
+            </div>
+
+
+            <h1>
+                Complete Your Order
+            </h1>
+
+
+            <div class="title-flourish">
+                ──── ♡ ────
+            </div>
+
+
+            <p>
+                Just a few details and your delicious order will be ready.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAIN CHECKOUT CONTENT
+        ================================================== -->
+
+        <section class="checkout-container">
+
+
+            <!-- =================================================
+                 DELIVERY DETAILS
+            ================================================== -->
+
+            <div class="checkout-card delivery-card">
+
+                <h2>
+                    Delivery Details
+                </h2>
+
+
+                <div class="card-divider">
+
+                    <span></span>
+
+                    <b>♡</b>
+
+                    <span></span>
+
+                </div>
+
+
+
+                <form
+                    class="checkout-form"
+                    id="checkout-form">
+
+
+                    <!-- FULL NAME -->
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+
+                        <div class="input-box">
+
+                            <i class="fa-regular fa-user"></i>
+
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                name="fullName"
+                                placeholder="Enter your full name"
+                                autocomplete="name">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-phone"></i>
+
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                                autocomplete="tel">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ADDRESS -->
+
+                    <div class="form-group">
+
+                        <label for="address">
+                            Delivery Address
+                        </label>
+
+
+                        <div class="input-box textarea-box">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+
+                            <textarea
+                                id="address"
+                                name="address"
+                                placeholder="Enter your delivery address"
+                                rows="4"></textarea>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ORDER NOTES -->
+
+                    <div class="form-group">
+
+                        <label for="notes">
+
+                            Order Notes
+
+                            <span>
+                                (Optional)
+                            </span>
+
+                        </label>
+
+
+                        <div class="input-box textarea-box">
+
+                            <i class="fa-regular fa-note-sticky"></i>
+
+
+                            <textarea
+                                id="notes"
+                                name="notes"
+                                placeholder="Any special instructions?"
+                                rows="4"></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ORDER SUMMARY
+            ================================================== -->
+
+            <div class="checkout-card order-card">
+
+
+                <h2>
+                    Your Order
+                </h2>
+
+
+                <div class="card-divider">
+
+                    <span></span>
+
+                    <b>♡</b>
+
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- CART ITEMS -->
+
+                <div id="checkout-items">
+
+                </div>
+
+
+
+                <!-- TOTAL DIVIDER -->
+
+                <div class="summary-line">
+                </div>
+
+
+
+                <!-- TOTAL -->
+
+                <div class="total-row">
+
+                    <span>
+                        Total
+                    </span>
+
+
+                    <strong id="checkout-total">
+                        ₦0
+                    </strong>
+
+                </div>
+
+
+
+                <!-- PLACE ORDER BUTTON -->
+
+                <button
+                    type="button"
+                    class="place-order-btn"
+                    id="place-order-btn">
+
+                    PLACE ORDER
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         BEAUTIFUL MESSAGE MODAL
+    ====================================================== -->
+
+    <div
+        id="message-modal"
+        class="message-modal">
+
+
+        <div class="message-box">
+
+
+            <!-- CLOSE BUTTON -->
+
+            <button
+                type="button"
+                class="message-close"
+                onclick="closeMessage()"
+                aria-label="Close">
+
+                ×
+
+            </button>
+
+
+
+            <!-- HEART ICON -->
+
+            <div class="message-icon">
+
+                ♥️
+
+            </div>
+
+
+
+            <!-- MESSAGE TITLE -->
+
+            <h2 id="message-title">
+                Missing Information
+            </h2>
+
+
+
+            <!-- MESSAGE -->
+
+            <p id="message-text">
+                Please enter your details.
+            </p>
+
+
+
+            <!-- OK BUTTON -->
+
+            <button
+                type="button"
+                class="message-ok"
+                onclick="closeMessage()">
+
+                OK
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+
+        /* =================================================
+           LOAD CART
+        ================================================== */
+
+        let cart =
+            JSON.parse(
+                localStorage.getItem("cart")
+            ) || [];
+
+
+
+        /* =================================================
+           CUSTOM MESSAGE
+        ================================================== */
+
+        function showMessage(title, message) {
+
+            document
+                .getElementById("message-title")
+                .textContent = title;
+
+
+            document
+                .getElementById("message-text")
+                .textContent = message;
+
+
+            document
+                .getElementById("message-modal")
+                .classList.add("show");
+
+        }
+
+
+
+        /* =================================================
+           CLOSE MESSAGE
+        ================================================== */
+
+        function closeMessage() {
+
+            document
+                .getElementById("message-modal")
+                .classList.remove("show");
+
+        }
+
+
+
+        /* =================================================
+           CLOSE MODAL WHEN CLICKING OUTSIDE
+        ================================================== */
+
+        document
+            .getElementById("message-modal")
+            .addEventListener("click", function(event) {
+
+                if (
+                    event.target === this
+                ) {
+
+                    closeMessage();
+
+                }
+
+            });
+
+
+
+        /* =================================================
+           DISPLAY CHECKOUT CART
+        ================================================== */
+
+        function displayCheckoutCart() {
+
+
+            const checkoutItems =
+                document.getElementById(
+                    "checkout-items"
+                );
+
+
+            const checkoutTotal =
+                document.getElementById(
+                    "checkout-total"
+                );
+
+
+            /* CLEAR PREVIOUS CONTENT */
+
+            checkoutItems.innerHTML = "";
+
+
+            let total = 0;
+
+
+
+            /* =================================================
+               EMPTY CART
+            ================================================== */
+
+            if (cart.length === 0) {
+
+
+                checkoutItems.innerHTML = `
+
+                    <div class="cart-empty-icon">
+
+                        <i class="fa-solid fa-basket-shopping"></i>
+
+                        <span>♥</span>
+
+                    </div>
+
+
+                    <div class="empty-message">
+
+                        <h3>
+                            Your cart is empty
+                        </h3>
+
+                        <p>
+                            Add some delicious cakes
+                            <br>
+                            to get started!
+                        </p>
+
+                    </div>
+
+                `;
+
+
+                checkoutTotal.textContent =
+                    "₦0";
+
+
+                return;
+
+            }
+
+
+
+            /* =================================================
+               DISPLAY CART ITEMS
+            ================================================== */
+
+            cart.forEach(function(item) {
+
+
+                const price =
+                    Number(item.price) || 0;
+
+
+                const quantity =
+                    Number(item.quantity) || 1;
+
+
+                const itemTotal =
+                    price * quantity;
+
+
+                total += itemTotal;
+
+
+
+                const checkoutItem =
+                    document.createElement("div");
+
+
+                checkoutItem.className =
+                    "checkout-item";
+
+
+
+                checkoutItem.innerHTML = `
+
+                    ${
+                        item.image
+                        ?
+                        `
+                        <img
+                            src="${item.image}"
+                            alt="${item.name}"
+                            class="checkout-cake-image">
+                        `
+                        :
+                        `
+                        <div class="checkout-cake-placeholder">
+                            🧁
+                        </div>
+                        `
+                    }
+
+
+                    <div class="checkout-item-info">
+
+                        <h3>
+                            ${item.name}
+                        </h3>
+
+
+                        <p>
+                            Quantity: ${quantity}
+                        </p>
+
+                    </div>
+
+
+                    <strong>
+                        ₦${itemTotal.toLocaleString()}
+                    </strong>
+
+                `;
+
+
+                checkoutItems.appendChild(
+                    checkoutItem
+                );
+
+            });
+
+
+
+            /* =================================================
+               UPDATE TOTAL
+            ================================================== */
+
+            checkoutTotal.textContent =
+                "₦" + total.toLocaleString();
+
+        }
+
+
+
+        /* =================================================
+           PLACE ORDER
+        ================================================== */
+
+        function placeOrder() {
+
+
+            const name =
+                document
+                    .getElementById("fullName")
+                    .value
+                    .trim();
+
+
+            const phone =
+                document
+                    .getElementById("phone")
+                    .value
+                    .trim();
+
+
+            const address =
+                document
+                    .getElementById("address")
+                    .value
+                    .trim();
+
+
+            const notes =
+                document
+                    .getElementById("notes")
+                    .value
+                    .trim();
+
+
+
+            /* =================================================
+               CHECK FULL NAME
+            ================================================== */
+
+            if (!name) {
+
+                showMessage(
+                    "What's Your Name? 💕",
+                    "Please enter your full name so we know who we're preparing this delicious order for."
+                );
+
+                return;
+
+            }
+
+
+
+            /* =================================================
+               CHECK PHONE
+            ================================================== */
+
+            if (!phone) {
+
+                showMessage(
+                    "Phone Number Needed 📞",
+                    "Please enter your phone number so we can contact you about your delivery."
+                );
+
+                return;
+
+            }
+
+
+
+            /* =================================================
+               CHECK ADDRESS
+            ================================================== */
+
+            if (!address) {
+
+                showMessage(
+                    "Delivery Address Needed 📍",
+                    "Please enter your delivery address so we know where to deliver your delicious treats."
+                );
+
+                return;
+
+            }
+
+
+
+            /* =================================================
+               CHECK CART
+            ================================================== */
+
+            if (cart.length === 0) {
+
+                showMessage(
+                    "Your Cart Is Empty 🧁",
+                    "There are no cakes in your cart yet. Please add something delicious before placing your order."
+                );
+
+                return;
+
+            }
+
+
+
+            /* =================================================
+               SAVE CUSTOMER INFORMATION
+            ================================================== */
+
+            localStorage.setItem(
+                "customerName",
+                name
+            );
+
+
+            localStorage.setItem(
+                "customerPhone",
+                phone
+            );
+
+
+            localStorage.setItem(
+                "customerAddress",
+                address
+            );
+
+
+            localStorage.setItem(
+                "customerNotes",
+                notes
+            );
+
+
+
+            /* =================================================
+               SAVE ORDER TOTAL
+            ================================================== */
+
+            const total =
+                cart.reduce(function(sum, item) {
+
+                    return sum +
+                        (
+                            Number(item.price) *
+                            Number(item.quantity)
+                        );
+
+                }, 0);
+
+
+            localStorage.setItem(
+                "orderTotal",
+                total
+            );
+
+             /* =================================================
+   SAVE ORDER FOR ORDERS PAGE
+================================================= */
+
+let savedOrders =
+    JSON.parse(
+        localStorage.getItem("aliceOrders")
+    ) || [];
+
+const orderId =
+    "AB" + Date.now();
+
+const orderDate =
+    new Date().toLocaleDateString(
+        "en-NG",
+        {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+
+cart.forEach(function(item) {
+
+    savedOrders.push({
+
+        id: orderId,
+
+        date: orderDate,
+
+        status: "Pending",
+
+        name: item.name,
+
+        image: item.image,
+
+        quantity: Number(item.quantity) || 1,
+
+        price:
+            "₦" +
+            Number(item.price).toLocaleString(),
+
+        total:
+            "₦" +
+            (
+                Number(item.price) *
+                Number(item.quantity)
+            ).toLocaleString()
+
+    });
+
+});
+
+
+localStorage.setItem(
+    "aliceOrders",
+    JSON.stringify(savedOrders)
+); 
+
+
+
+            /* =================================================
+               GO TO CONFIRMATION PAGE
+            ================================================== */
+
+            window.location.href =
+                "order-confirmed.html";
+
+        }
+
+
+
+        /* =================================================
+           PLACE ORDER BUTTON
+        ================================================== */
+
+        document
+            .getElementById("place-order-btn")
+            .addEventListener(
+                "click",
+                placeOrder
+            );
+
+
+
+        /* =================================================
+           LOAD CHECKOUT
+        ================================================== */
+
+        displayCheckoutCart();
+
+
+    </script>
+
+  <script>
+(function () {
+
+    const savedTheme =
+        localStorage.getItem("aliceTheme") || "light";
+
+    document.body.classList.add(
+        "theme-" + savedTheme
+    );
+
+})();
+</script>
+
+</body>
+
+</html>

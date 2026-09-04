@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery | Alice's Bakery</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- BACK TO HOME -->
+
+    <a href="index.html" class="gallery-back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Home
+    </a>
+
+
+    <!-- GALLERY HERO -->
+
+    <section class="gallery-hero">
+
+        <p class="section-label">
+            ✦ ALICE'S BAKERY ✦
+        </p>
+
+        <h1>
+            A Little Taste of<br>
+            <span>Our Sweet World</span>
+        </h1>
+
+        <div class="gallery-divider">
+            <span></span>
+            <i class="fa-solid fa-heart"></i>
+            <span></span>
+        </div>
+
+        <p>
+            Take a peek at some of the beautiful cakes and
+            sweet creations we've made with love.
+        </p>
+
+    </section>
+
+
+    <!-- GALLERY FILTERS -->
+
+    <section class="gallery-section">
+
+        <div class="gallery-filters">
+
+            <button class="gallery-filter active" onclick="filterGallery('all')">
+                ALL
+            </button>
+
+            <button class="gallery-filter" onclick="filterGallery('birthday')">
+                BIRTHDAY
+            </button>
+
+            <button class="gallery-filter" onclick="filterGallery('wedding')">
+                WEDDING
+            </button>
+
+            <button class="gallery-filter" onclick="filterGallery('chocolate')">
+                CHOCOLATE
+            </button>
+
+            <button class="gallery-filter" onclick="filterGallery('cupcakes')">
+                CUPCAKES
+            </button>
+
+        </div>
+
+
+        <!-- GALLERY GRID -->
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item" data-category="birthday">
+                <img src="Birthdaycake.png" alt="Birthday Cake">
+                <div class="gallery-overlay">
+                    <h3>Birthday Joy</h3>
+                    <span>♥</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item" data-category="wedding">
+                <img src="Weddingcake.png" alt="Wedding Cake">
+                <div class="gallery-overlay">
+                    <h3>Wedding Elegance</h3>
+                    <span>♥</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item" data-category="chocolate">
+                <img src="chocolatecake.png" alt="Chocolate Cake">
+                <div class="gallery-overlay">
+                    <h3>Chocolate Delight</h3>
+                    <span>♥</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item" data-category="cupcakes">
+                <img src="cupcake.png" alt="Cupcakes">
+                <div class="gallery-overlay">
+                    <h3>Sweet Cupcakes</h3>
+                    <span>♥</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item" data-category="birthday">
+                <img src="strawberrycake.png" alt="Strawberry Cake">
+                <div class="gallery-overlay">
+                    <h3>Strawberry Bliss</h3>
+                    <span>♥</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item" data-category="chocolate">
+                <img src="redvelvetcake.png" alt="Red Velvet Cake">
+                <div class="gallery-overlay">
+                    <h3>Red Velvet</h3>
+                    <span>♥</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item" data-category="birthday">
+                <img src="Allcake.png" alt="Cake Collection">
+                <div class="gallery-overlay">
+                    <h3>Sweet Collection</h3>
+                    <span>♥</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item" data-category="cupcakes">
+                <img src="cakepop.png" alt="Cake Pops">
+                <div class="gallery-overlay">
+                    <h3>Cake Pops</h3>
+                    <span>♥</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALLERY CTA -->
+
+    <section class="gallery-cta">
+
+        <p class="section-label">
+            YOUR DREAM CAKE
+        </p>
+
+        <h2>
+            Don't See What<br>
+            <span>You're Looking For?</span>
+        </h2>
+
+        <p>
+            Create something completely unique with our
+            custom cake service.
+        </p>
+
+        <a href="Custom-order.html" class="gallery-cta-btn">
+            CREATE A CUSTOM ORDER
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </section>
+
+
+         <!-- GALLERY LIGHTBOX -->
+
+   <div id="galleryLightbox" class="gallery-lightbox">
+
+    <button
+        type="button"
+        class="lightbox-close"
+        onclick="closeGalleryLightbox()">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Large cake preview">
+
+    <p id="lightboxTitle"></p>
+
+<a
+    id="saveImageBtn"
+    class="save-image-btn"
+    href="#">
+
+    <i class="fa-solid fa-download"></i>
+    SAVE IMAGE
+
+</a>
+     
+</div>
+
+  <!-- DOWNLOAD CONFIRMATION POPUP -->
+
+<div id="downloadPopup" class="download-popup">
+
+    <div class="download-popup-card">
+
+        <button
+            type="button"
+            class="download-popup-close"
+            onclick="closeDownloadPopup()">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="download-popup-icon">
+            <i class="fa-solid fa-download"></i>
+        </div>
+
+        <h3>Save This Sweet Creation? ♡</h3>
+
+        <p>
+            Would you like to save this cake image
+            to your phone?
+        </p>
+
+        <div class="download-popup-buttons">
+
+            <button
+                type="button"
+                class="download-no-btn"
+                onclick="closeDownloadPopup()">
+
+                NO
+
+            </button>
+
+            <button
+                type="button"
+                class="download-yes-btn"
+                onclick="confirmImageDownload()">
+
+                YES, SAVE IT
+                <i class="fa-solid fa-download"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- DOWNLOAD SUCCESS MESSAGE -->
+
+<div id="downloadSuccess" class="download-success">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <div>
+        <strong>Image Downloaded Successfully!</strong>
+
+        <span>
+            Your sweet creation has been saved.
+        </span>
+    </div>
+
+    <button
+        type="button"
+        onclick="closeDownloadSuccess()">
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+</div>
+  
+    <!-- GALLERY FILTER SCRIPT -->
+
+    <script>
+
+        function filterGallery(category) {
+
+            const items =
+                document.querySelectorAll(".gallery-item");
+
+            const buttons =
+                document.querySelectorAll(".gallery-filter");
+
+
+            buttons.forEach(function(button) {
+
+                button.classList.remove("active");
+
+            });
+
+
+            event.target.classList.add("active");
+
+
+            items.forEach(function(item) {
+
+                if (
+                    category === "all" ||
+                    item.dataset.category === category
+                ) {
+
+                    item.style.display = "block";
+
+                } else {
+
+                    item.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+       <script>
+
+const galleryItems =
+    document.querySelectorAll(".gallery-item");
+
+const lightbox =
+    document.getElementById("galleryLightbox");
+
+const lightboxImage =
+    document.getElementById("lightboxImage");
+
+const lightboxTitle =
+    document.getElementById("lightboxTitle");
+
+const saveImageBtn =
+    document.getElementById("saveImageBtn");
+
+const downloadPopup =
+    document.getElementById("downloadPopup");
+
+const downloadSuccess =
+    document.getElementById("downloadSuccess");
+
+
+galleryItems.forEach(function(item) {
+
+    item.addEventListener("click", function() {
+
+        const image =
+            item.querySelector("img");
+
+        const title =
+            item.querySelector(".gallery-overlay h3");
+
+        lightboxImage.src = image.src;
+
+        lightboxImage.alt = image.alt;
+
+        lightboxTitle.textContent =
+            title ? title.textContent : "";
+
+      saveImageBtn.href = image.src;
+
+    lightbox.classList.add("active");
+
+    });
+
+});
+
+    saveImageBtn.onclick = function(event) {
+
+    event.preventDefault();
+
+    downloadPopup.classList.add("active");
+
+};     
+
+
+function closeGalleryLightbox() {
+
+    lightbox.classList.remove("active");
+
+}
+
+
+lightbox.addEventListener("click", function(event) {
+
+    if (event.target === lightbox) {
+
+        closeGalleryLightbox();
+
+    }
+
+});
+
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeGalleryLightbox();
+
+    }
+
+});
+
+  /* =========================
+   DOWNLOAD CONFIRMATION
+========================= */
+
+function closeDownloadPopup() {
+
+    downloadPopup.classList.remove("active");
+
+}
+
+
+function confirmImageDownload() {
+
+    // Close confirmation popup
+    downloadPopup.classList.remove("active");
+
+    // Start image download
+    const downloadLink =
+        document.createElement("a");
+
+    downloadLink.href =
+        saveImageBtn.href;
+
+    downloadLink.download =
+        saveImageBtn.download;
+
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+
+    downloadLink.remove();
+
+
+    // Show success message
+    downloadSuccess.classList.add("active");
+
+
+    // Automatically hide after 3 seconds
+    setTimeout(function() {
+
+        closeDownloadSuccess();
+
+    }, 3000);
+
+}
+
+
+function closeDownloadSuccess() {
+
+    downloadSuccess.classList.remove("active");
+
+}
+
+</script>
+
+        <script>
+(function () {
+
+    const savedTheme =
+        localStorage.getItem("aliceTheme") || "light";
+
+    document.body.classList.add(
+        "theme-" + savedTheme
+    );
+
+})();
+</script>
+  
+
+</body>
+
+</html>

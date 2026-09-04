@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>My Favorites | Alice's Bakery</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+  <a href="cart.html" class="cakes-cart">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cakesCartCount">0</span>
+</a>
+
+    <main class="favorites-page">
+
+        <!-- BACK BUTTON -->
+
+        <a href="Profile.html" class="favorites-back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Profile
+
+        </a>
+
+
+        <!-- HEADER -->
+
+        <section class="favorites-header">
+
+            <p class="favorites-label">
+                ✦ YOUR SWEET COLLECTION ✦
+            </p>
+
+            <h1>
+                My <span>Favorites</span>
+            </h1>
+
+            <p>
+                Your favorite cakes and treats, all in one sweet place.
+            </p>
+
+        </section>
+
+
+        <!-- FAVORITES -->
+
+        <section
+            class="favorites-container"
+            id="favoritesContainer">
+
+        </section>
+
+
+        <!-- EMPTY FAVORITES -->
+
+        <section
+            class="favorites-empty"
+            id="favoritesEmpty">
+
+            <div class="favorites-empty-icon">
+
+                <i class="fa-regular fa-heart"></i>
+
+            </div>
+
+            <h2>
+                No Favorites Yet
+            </h2>
+
+            <p>
+                You haven't saved any cakes yet.
+                <br>
+                Find something delicious to love!
+            </p>
+
+            <a
+                href="Cakes.html"
+                class="favorites-browse-btn">
+
+                <i class="fa-solid fa-cake-candles"></i>
+
+                Explore Our Cakes
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const favoritesContainer =
+        document.getElementById("favoritesContainer");
+
+    const favoritesEmpty =
+        document.getElementById("favoritesEmpty");
+
+
+    /* =========================================
+       GET FAVORITES
+    ========================================= */
+
+    function getFavorites() {
+
+        const saved =
+            localStorage.getItem("favorites");
+
+        if (!saved) {
+            return [];
+        }
+
+        try {
+
+            return JSON.parse(saved);
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    }
+
+
+    /* =========================================
+       GET CART
+    ========================================= */
+
+    function getCart() {
+
+        const saved =
+            localStorage.getItem("aliceCart");
+
+        if (!saved) {
+            return [];
+        }
+
+        try {
+
+            return JSON.parse(saved);
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    }
+
+     /* =========================================
+   FORMAT PRICE IN NAIRA
+========================================= */
+
+function formatPrice(price) {
+
+    const amount = Number(
+        String(price).replace(/[₦,]/g, "")
+    ) || 0;
+
+    return "₦" + amount.toLocaleString("en-NG");
+}
+
+
+    /* =========================================
+       UPDATE CART COUNT
+    ========================================= */
+
+    function updateCartCount() {
+
+    let cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
+
+    let totalQuantity = 0;
+
+    cart.forEach(function (item) {
+
+        totalQuantity += Number(item.quantity) || 1;
+
+    });
+
+
+    /* Favorites page cart */
+
+    const cakesCartCount =
+        document.getElementById("cakesCartCount");
+
+    if (cakesCartCount) {
+
+        cakesCartCount.textContent =
+            totalQuantity;
+
+    }
+
+
+    /* Other cart counters */
+
+    const cartBadges =
+        document.querySelectorAll(
+            ".cart span, .nav-cart span, #cartCount"
+        );
+
+    cartBadges.forEach(function (badge) {
+
+        badge.textContent =
+            totalQuantity;
+
+    });
+
+}
+
+
+    /* =========================================
+       SHOW SUCCESS MESSAGE
+    ========================================= */
+
+    function showCartMessage(cakeName) {
+
+        /* Remove an old message first */
+
+        const oldMessage =
+            document.querySelector(".cart-success-message");
+
+        if (oldMessage) {
+            oldMessage.remove();
+        }
+
+
+        /* Create message */
+
+        const message =
+            document.createElement("div");
+
+        message.className =
+            "cart-success-message";
+
+
+        message.innerHTML = `
+
+            <div class="cart-success-icon">
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+            <div class="cart-success-text">
+
+                <strong>Added to Cart!</strong>
+
+                <span>
+                    ${cakeName} has been added to your cart.
+                </span>
+
+            </div>
+
+            <button
+                class="cart-message-close"
+                aria-label="Close">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        `;
+
+
+        document.body.appendChild(message);
+
+
+        /* Small delay for animation */
+
+        setTimeout(function () {
+
+            message.classList.add("show");
+
+        }, 20);
+
+
+        /* Close button */
+
+        const closeButton =
+            message.querySelector(".cart-message-close");
+
+        closeButton.addEventListener("click", function () {
+
+            message.classList.remove("show");
+
+            setTimeout(function () {
+
+                message.remove();
+
+            }, 350);
+
+        });
+
+
+        /* Automatically disappear */
+
+        setTimeout(function () {
+
+            if (message.parentElement) {
+
+                message.classList.remove("show");
+
+                setTimeout(function () {
+
+                    if (message.parentElement) {
+                        message.remove();
+                    }
+
+                }, 350);
+
+            }
+
+        }, 3000);
+
+    }
+
+
+    /* =========================================
+       ADD TO CART
+    ========================================= */
+
+ function addFavoriteToCart(cake) {
+
+    let cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
+
+
+    /* Find the cake already in the cart */
+
+    const existingCake =
+        cart.find(function (item) {
+
+            return item.name === cake.name;
+
+        });
+
+
+    if (existingCake) {
+
+        /* Increase quantity */
+
+        existingCake.quantity =
+            (Number(existingCake.quantity) || 1) + 1;
+
+    } else {
+
+        /* Add new cake */
+
+        cart.push({
+
+            name: cake.name,
+
+            price: Number(
+                String(cake.price)
+                    .replace(/[₦,]/g, "")
+            ),
+
+            image: cake.image,
+
+            description:
+                cake.description || "",
+
+            quantity: 1
+
+        });
+
+    }
+
+
+    /* Save using the SAME storage name as Cakes.html */
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+
+    /* Update the number immediately */
+
+    updateCartCount();
+
+
+    /* Show polished message */
+
+    showCartMessage(cake.name);
+
+} 
+
+
+    /* =========================================
+       DISPLAY FAVORITES
+    ========================================= */
+
+    function displayFavorites() {
+
+        const favorites =
+            getFavorites();
+
+
+        /* Clear container */
+
+        favoritesContainer.innerHTML = "";
+
+
+        /* No favorites */
+
+        if (favorites.length === 0) {
+
+            favoritesContainer.style.display = "none";
+
+            favoritesEmpty.style.display = "flex";
+
+            return;
+
+        }
+
+
+        /* Show favorites */
+
+        favoritesContainer.style.display = "grid";
+
+        favoritesEmpty.style.display = "none";
+
+
+        /* Create each card */
+
+        favorites.forEach(function (cake) {
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "favorite-card";
+
+
+            card.innerHTML = `
+
+                <div class="favorite-image">
+
+                    <img
+                        src="${cake.image}"
+                        alt="${cake.name}"
+                    >
+
+                    <button
+                        class="remove-favorite"
+                        data-name="${cake.name}"
+                        title="Remove from favorites">
+
+                        <i class="fa-solid fa-heart"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div class="favorite-info">
+
+                    <h3>
+                        ${cake.name}
+                    </h3>
+
+                    <p>
+                        ${cake.description ||
+                        "A delicious treat from Alice's Bakery."}
+                    </p>
+
+
+                    <div class="favorite-bottom">
+
+                        <strong>
+    ${formatPrice(cake.price)}
+</strong>
+
+
+                        <button
+                            class="favorite-cart-btn"
+                            data-name="${cake.name}">
+
+                            <i class="fa-solid fa-cart-shopping"></i>
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            favoritesContainer.appendChild(card);
+
+        });
+
+
+        /* =====================================
+           REMOVE FAVORITE BUTTONS
+        ===================================== */
+
+        document
+            .querySelectorAll(".remove-favorite")
+            .forEach(function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const name =
+                            this.dataset.name;
+
+
+                        let favorites =
+                            getFavorites();
+
+
+                        favorites =
+                            favorites.filter(
+                                function (cake) {
+
+                                    return cake.name !== name;
+
+                                }
+                            );
+
+
+                        localStorage.setItem(
+                            "favorites",
+                            JSON.stringify(favorites)
+                        );
+
+
+                        /* Refresh page content */
+
+                        displayFavorites();
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================
+           ADD TO CART BUTTONS
+        ===================================== */
+
+        document
+            .querySelectorAll(".favorite-cart-btn")
+            .forEach(function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const name =
+                            this.dataset.name;
+
+
+                        const favorites =
+                            getFavorites();
+
+
+                        const cake =
+                            favorites.find(
+                                function (item) {
+
+                                    return item.name === name;
+
+                                }
+                            );
+
+
+                        if (!cake) {
+                            return;
+                        }
+
+
+                        /* Add cake */
+
+                        addFavoriteToCart(cake);
+
+                    }
+                );
+
+            });
+
+    }
+
+
+    /* =========================================
+       INITIAL LOAD
+    ========================================= */
+
+    displayFavorites();
+
+    updateCartCount();
+
+
+    /* =========================================
+       UPDATE WHEN RETURNING TO PAGE
+    ========================================= */
+
+    window.addEventListener(
+        "storage",
+        function () {
+
+            displayFavorites();
+
+            updateCartCount();
+
+        }
+    );
+
+
+});
+                   
+</script>
+
+        <script>
+(function () {
+
+    const savedTheme =
+        localStorage.getItem("aliceTheme") || "light";
+
+    document.body.classList.add(
+        "theme-" + savedTheme
+    );
+
+})();
+</script>
+  
+
+</body>
+
+</html>

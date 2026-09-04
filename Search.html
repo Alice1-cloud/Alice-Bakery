@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search | Alice's Bakery</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- SEARCH PAGE -->
+
+    <main class="search-page">
+
+        <a href="index.html" class="search-back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Home
+        </a>
+
+
+        <!-- SEARCH HERO -->
+
+        <section class="search-hero">
+
+            <p class="search-label">
+                ✦ ALICE'S BAKERY ✦
+            </p>
+
+            <h1>
+                Find Your <span>Sweet Treat</span>
+            </h1>
+
+            <p>
+                Search through our delicious collection of cakes
+                and sweet creations.
+            </p>
+
+
+            <!-- SEARCH BOX -->
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search for cakes, cupcakes..."
+                    autocomplete="off">
+
+                <button type="button" id="searchButton">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+            </div>
+
+          <div id="searchSuggestions" class="search-suggestions"></div>
+
+        </section>
+
+
+        <!-- POPULAR SEARCHES -->
+
+        <section class="popular-searches">
+
+            <h2>Popular Searches</h2>
+
+            <div class="search-tags">
+
+                <button onclick="searchFor('Birthday Cake')">
+                    Birthday Cakes
+                </button>
+
+                <button onclick="searchFor('Wedding Cake')">
+                    Wedding Cakes
+                </button>
+
+                <button onclick="searchFor('Chocolate Cake')">
+                    Chocolate Cakes
+                </button>
+
+                <button onclick="searchFor('Cupcakes')">
+                    Cupcakes
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SEARCH RESULTS -->
+
+        <section class="search-results">
+
+            <h2 id="resultsTitle">
+                Our Sweet Collection
+            </h2>
+
+            <div id="resultsGrid" class="search-results-grid">
+
+                <!-- Results will appear here -->
+
+            </div>
+
+            <p id="noResults" class="no-results">
+                We couldn't find anything matching your search.
+            </p>
+
+        </section>
+
+    </main>
+
+  <script>
+
+    const searchInput =
+    document.getElementById("searchInput");
+
+const searchButton =
+    document.getElementById("searchButton");
+
+const resultsGrid =
+    document.getElementById("resultsGrid");
+
+const noResults =
+    document.getElementById("noResults");
+
+const searchSuggestions =
+    document.getElementById("searchSuggestions");
+
+const resultsTitle =
+    document.getElementById("resultsTitle");
+
+
+// =====================================
+// CATEGORY INFORMATION
+// =====================================
+
+const categories = {
+
+    birthday: {
+        name: "Birthday Cakes",
+        image: "Birthdaycake.png",
+        link: "Cakes.html#birthday"
+    },
+
+    wedding: {
+        name: "Wedding Cakes",
+        image: "Weddingcake.png",
+        link: "Cakes.html#wedding"
+    },
+
+    chocolate: {
+        name: "Chocolate Cakes",
+        image: "chocolatecake.png",
+        link: "Cakes.html#chocolate"
+    },
+
+    vanilla: {
+        name: "Vanilla Cakes",
+        image: "vanillacake.png",
+        link: "Cakes.html#vanilla"
+    },
+
+    "red-velvet": {
+        name: "Red Velvet Cakes",
+        image: "redvelvetcake.png",
+        link: "Cakes.html#red-velvet"
+    },
+
+    strawberry: {
+        name: "Strawberry Cakes",
+        image: "strawberrycake.png",
+        link: "Cakes.html#strawberry"
+    },
+
+    cupcakes: {
+        name: "Cupcakes",
+        image: "cupcake.png",
+        link: "Cakes.html#cupcakes"
+    }
+
+};
+
+
+// =====================================
+// STORE ALL CAKES
+// =====================================
+
+let products = [];
+
+
+// =====================================
+// LOAD CAKES FROM cakes.html
+// =====================================
+
+fetch("Cakes.html")
+    .then(function(response) {
+        return response.text();
+    })
+
+    .then(function(html) {
+
+        const parser =
+            new DOMParser();
+
+        const cakePage =
+            parser.parseFromString(
+                html,
+                "text/html"
+            );
+
+
+        const cakeCards =
+            cakePage.querySelectorAll(
+                ".cake-card"
+            );
+
+
+        cakeCards.forEach(function(card) {
+
+            const nameElement =
+                card.querySelector(".cake-name");
+
+            const descriptionElement =
+                card.querySelector(".cake-description");
+
+            const priceElement =
+                card.querySelector(".cake-price");
+
+            const imageElement =
+                card.querySelector("img");
+
+
+            if (!nameElement) {
+                return;
+            }
+
+
+            const name =
+                nameElement.textContent.trim();
+
+            const description =
+                descriptionElement
+                    ? descriptionElement.textContent.trim()
+                    : "";
+
+            const price =
+                priceElement
+                    ? priceElement.textContent.trim()
+                    : "";
+
+            const image =
+                imageElement
+                    ? imageElement.getAttribute("src")
+                    : "";
+
+            const category =
+                card.dataset.category;
+
+
+            products.push({
+
+                name: name,
+
+                description: description,
+
+                price: price,
+
+                image: image,
+
+                category: category
+
+            });
+
+        });
+
+
+        // Show categories when page opens
+
+        showCategories();
+
+    })
+
+    .catch(function(error) {
+
+        console.log(
+            "Error loading cakes:",
+            error
+        );
+
+    });
+
+
+// =====================================
+// SHOW CATEGORY CARDS
+// =====================================
+
+function showCategories() {
+
+    resultsGrid.innerHTML = "";
+
+    noResults.style.display = "none";
+
+
+    Object.values(categories)
+        .forEach(function(category) {
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "search-product-card";
+
+
+            card.innerHTML = `
+
+                <img
+                    src="${category.image}"
+                    alt="${category.name}"
+                >
+
+                <h3>
+                    ${category.name}
+                </h3>
+
+                <a href="${category.link}">
+                    View Cake
+                </a>
+
+            `;
+
+
+            resultsGrid.appendChild(card);
+
+        });
+
+
+    resultsTitle.textContent =
+        "Our Sweet Collection";
+
+}
+
+
+// =====================================
+// DISPLAY ACTUAL CAKES
+// =====================================
+
+function displayCakeResults(items) {
+
+    resultsGrid.innerHTML = "";
+
+    noResults.style.display = "none";
+
+
+    if (items.length === 0) {
+
+        noResults.style.display = "block";
+
+        return;
+
+    }
+
+
+    items.forEach(function(product) {
+
+        const card =
+            document.createElement("div");
+
+
+        // IMPORTANT:
+        // Use the SAME class as cakes.html
+
+        card.className =
+            "cake-card";
+
+
+        card.innerHTML = `
+
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+            >
+
+            <p class="cake-name">
+                ${product.name}
+            </p>
+
+            <p class="cake-description">
+                ${product.description}
+            </p>
+
+            <p class="cake-price">
+                ${product.price}
+            </p>
+
+            <button
+                class="add-cart"
+                onclick="addToCart(
+                    '${product.name.replace(/'/g, "\\'")}'
+                )">
+                +
+            </button>
+
+        `;
+
+
+        resultsGrid.appendChild(card);
+
+    });
+
+}
+
+
+// =====================================
+// SEARCH
+// =====================================
+
+function performSearch() {
+
+    const searchTerm =
+        searchInput.value
+            .trim()
+            .toLowerCase();
+
+
+    // Empty search
+
+    if (searchTerm === "") {
+
+        showCategories();
+
+        return;
+
+    }
+
+
+    // Search actual cake names,
+    // descriptions and categories
+
+    const results =
+    products.filter(function(product) {
+
+        const categoryName = {
+
+            birthday: "birthday cakes",
+
+            wedding: "wedding cakes",
+
+            chocolate: "chocolate cakes",
+
+            vanilla: "vanilla cakes",
+
+            "red-velvet": "red velvet cakes",
+
+            strawberry: "strawberry cakes",
+
+            cupcakes: "cupcakes"
+
+        };
+
+
+        const fullCategory =
+            categoryName[product.category] || "";
+
+
+        return (
+
+            product.name
+                .toLowerCase()
+                .includes(searchTerm)
+
+            ||
+
+            product.description
+                .toLowerCase()
+                .includes(searchTerm)
+
+            ||
+
+            product.category
+                .toLowerCase()
+                .includes(searchTerm)
+
+            ||
+
+            fullCategory
+                .toLowerCase()
+                .includes(searchTerm)
+
+        );
+
+    });
+
+    
+
+
+    resultsTitle.textContent =
+        "Search Results";
+
+
+    displayCakeResults(results);
+
+}
+
+
+// =====================================
+// SEARCH SUGGESTIONS
+// =====================================
+
+const suggestions = [
+
+    "Birthday Cakes",
+    "Wedding Cakes",
+    "Chocolate Cakes",
+    "Vanilla Cakes",
+    "Red Velvet Cakes",
+    "Strawberry Cakes",
+    "Cupcakes",
+
+    "Vanilla Dream",
+    "Chocolate Delight",
+    "Red Luxe",
+    "Pink Rosette",
+    "Caramel Elegance",
+    "Caramel Bliss",
+    "Choco Dreams",
+    "Strawberry Royale",
+    "Chocolate Kiss",
+    "Golden Caramel",
+    "Strawberry Noir",
+    "Velvet Eclipse",
+    "Velvet Bluemoon",
+    "Velvet Duo",
+    "Blueberry Royale",
+    "Velvet Cakes"
+];
+    
+
+
+searchInput.addEventListener(
+    "input",
+    function() {
+
+        const typed =
+            searchInput.value
+                .trim()
+                .toLowerCase();
+
+
+        searchSuggestions.innerHTML = "";
+
+
+        if (typed === "") {
+
+            searchSuggestions.style.display =
+                "none";
+
+            return;
+
+        }
+
+
+        const matches =
+            suggestions
+                .filter(function(suggestion) {
+
+                    return suggestion
+                        .toLowerCase()
+                        .includes(typed);
+
+                })
+                .slice(0, 5);
+
+
+        if (matches.length === 0) {
+
+            searchSuggestions.style.display =
+                "none";
+
+            return;
+
+        }
+
+
+        matches.forEach(function(suggestion) {
+
+            const button =
+                document.createElement("button");
+
+
+            button.className =
+                "search-suggestion";
+
+
+            button.innerHTML = `
+                <i class="fa-solid fa-magnifying-glass"></i>
+                ${suggestion}
+            `;
+
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    searchInput.value =
+                        suggestion;
+
+                    searchSuggestions.style.display =
+                        "none";
+
+                    performSearch();
+
+                }
+            );
+
+
+            searchSuggestions.appendChild(button);
+
+        });
+
+
+        searchSuggestions.style.display =
+            "block";
+
+    }
+);
+
+
+// =====================================
+// POPULAR SEARCH BUTTONS
+// =====================================
+
+function searchFor(term) {
+
+    searchInput.value = term;
+
+    searchSuggestions.style.display =
+        "none";
+
+    performSearch();
+
+}
+
+
+// =====================================
+// SEARCH BUTTON
+// =====================================
+
+searchButton.addEventListener(
+    "click",
+    function() {
+
+        searchSuggestions.style.display =
+            "none";
+
+        performSearch();
+
+    }
+);
+
+
+// =====================================
+// ENTER KEY
+// =====================================
+
+searchInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            searchSuggestions.style.display =
+                "none";
+
+            performSearch();
+
+        }
+
+    }
+);
+
+
+// =====================================
+// ADD TO CART
+// =====================================
+
+function addToCart(cakeName) {
+
+    const product =
+        products.find(function(item) {
+
+            return item.name === cakeName;
+
+        });
+
+
+    if (!product) {
+        return;
+    }
+
+
+    let cart =
+        JSON.parse(
+            localStorage.getItem("cart")
+        ) || [];
+
+
+    // Convert ₦42,000 to 42000
+
+    const numericPrice =
+        Number(
+            product.price
+                .replace(/[₦,]/g, "")
+                .trim()
+        );
+
+
+    const existingCake =
+        cart.find(function(item) {
+
+            return item.name === cakeName;
+
+        });
+
+
+    if (existingCake) {
+
+        existingCake.quantity++;
+
+    } else {
+
+        cart.push({
+
+            name: product.name,
+
+            price: numericPrice,
+
+            image: product.image,
+
+            quantity: 1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+
+    showCartMessage(cakeName);
+
+}
+
+
+// =====================================
+// CART MESSAGE
+// =====================================
+
+function showCartMessage(cakeName) {
+
+    const message =
+        document.createElement("div");
+
+
+    message.className =
+        "cart-message";
+
+
+    message.innerHTML = `
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <div>
+
+            <strong>
+                Added to cart!
+            </strong>
+
+            <span>
+                ${cakeName} has been added
+                to your cart.
+            </span>
+
+        </div>
+
+        <button
+            onclick="this.parentElement.remove()">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    `;
+
+
+    document.body.appendChild(message);
+
+
+    setTimeout(function() {
+
+        message.classList.add("hide");
+
+
+        setTimeout(function() {
+
+            message.remove();
+
+        }, 300);
+
+    }, 2500);
+
+}
+                  
+    
+</script>
+
+
+        <script>
+(function () {
+
+    const savedTheme =
+        localStorage.getItem("aliceTheme") || "light";
+
+    document.body.classList.add(
+        "theme-" + savedTheme
+    );
+
+})();
+</script>
+  
+        
+
+</body>
+</html>

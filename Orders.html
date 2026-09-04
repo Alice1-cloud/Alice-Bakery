@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>My Orders | Alice's Bakery</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+    <main class="orders-page">
+
+
+        <!-- BACK TO PROFILE -->
+
+        <a href="Profile.html" class="orders-back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Home
+
+        </a>
+
+
+
+        <!-- ORDERS HEADER -->
+
+        <section class="orders-header">
+
+            <p class="orders-label">
+                ✦ YOUR SWEET ORDERS ✦
+            </p>
+
+            <h1>
+                My <span>Orders</span>
+            </h1>
+
+            <p>
+                Keep track of your delicious Alice's Bakery orders.
+            </p>
+
+        </section>
+
+
+
+        <!-- ORDERS LIST -->
+
+        <section
+            class="orders-container"
+            id="ordersContainer">
+
+        </section>
+
+
+
+        <!-- EMPTY ORDERS -->
+
+        <section
+            class="orders-empty"
+            id="ordersEmpty">
+
+            <div class="orders-empty-icon">
+
+                <i class="fa-solid fa-box-open"></i>
+
+            </div>
+
+
+            <h2>
+                No Orders Yet
+            </h2>
+
+
+            <p>
+                You haven't placed an order yet.
+                Your next sweet treat is waiting for you!
+            </p>
+
+
+            <a
+                href="cakes.html"
+                class="orders-browse-btn">
+
+                <i class="fa-solid fa-cake-candles"></i>
+
+                Explore Our Cakes
+
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         ORDER DETAILS MODAL
+    ========================================== -->
+
+    <div
+        class="order-details-modal"
+        id="orderDetailsModal">
+
+
+        <div class="order-details-box">
+
+
+            <!-- CLOSE BUTTON -->
+
+            <button
+                type="button"
+                class="order-details-close"
+                id="orderDetailsClose"
+                aria-label="Close">
+
+                ×
+
+            </button>
+
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="order-details-header">
+
+                <div class="order-details-heart">
+
+                    <i class="fa-solid fa-heart"></i>
+
+                </div>
+
+
+                <p>
+                    ORDER DETAILS
+                </p>
+
+
+                <h2>
+                    Your Sweet Order
+                </h2>
+
+            </div>
+
+
+
+            <!-- ORDER IMAGE -->
+
+            <div
+                class="details-image-container"
+                id="detailsImageContainer">
+
+            </div>
+
+
+
+            <!-- CAKE NAME -->
+
+            <h3
+                class="details-cake-name"
+                id="detailsCakeName">
+
+            </h3>
+
+
+
+            <!-- ORDER INFORMATION -->
+
+            <div class="details-information">
+
+
+                <div class="details-row">
+
+                    <span>
+                        <i class="fa-solid fa-hashtag"></i>
+                        Order Number
+                    </span>
+
+                    <strong id="detailsOrderId">
+                    </strong>
+
+                </div>
+
+
+
+                <div class="details-row">
+
+                    <span>
+                        <i class="fa-regular fa-calendar"></i>
+                        Date
+                    </span>
+
+                    <strong id="detailsDate">
+                    </strong>
+
+                </div>
+
+
+
+                <div class="details-row">
+
+                    <span>
+                        <i class="fa-solid fa-box"></i>
+                        Status
+                    </span>
+
+                    <strong
+                        class="details-status"
+                        id="detailsStatus">
+
+                    </strong>
+
+                </div>
+
+
+
+                <div class="details-row">
+
+                    <span>
+                        <i class="fa-solid fa-layer-group"></i>
+                        Quantity
+                    </span>
+
+                    <strong id="detailsQuantity">
+                    </strong>
+
+                </div>
+
+
+
+                <div class="details-row">
+
+                    <span>
+                        <i class="fa-solid fa-tag"></i>
+                        Price
+                    </span>
+
+                    <strong id="detailsPrice">
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- TOTAL -->
+
+            <div class="details-total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="detailsTotal">
+                </strong>
+
+            </div>
+
+
+
+            <!-- CLOSE -->
+
+            <button
+                type="button"
+                class="details-done-btn"
+                id="detailsDoneBtn">
+
+                DONE
+
+                <i class="fa-solid fa-heart"></i>
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+
+
+            const ordersContainer =
+                document.getElementById(
+                    "ordersContainer"
+                );
+
+
+            const ordersEmpty =
+                document.getElementById(
+                    "ordersEmpty"
+                );
+
+
+            const orderDetailsModal =
+                document.getElementById(
+                    "orderDetailsModal"
+                );
+
+
+            const orderDetailsClose =
+                document.getElementById(
+                    "orderDetailsClose"
+                );
+
+
+            const detailsDoneBtn =
+                document.getElementById(
+                    "detailsDoneBtn"
+                );
+
+
+
+            /* =====================================
+               GET ORDERS
+            ===================================== */
+
+            function getOrders() {
+
+                const savedOrders =
+                    localStorage.getItem(
+                        "aliceOrders"
+                    );
+
+
+                if (!savedOrders) {
+
+                    return [];
+
+                }
+
+
+                try {
+
+                    return JSON.parse(
+                        savedOrders
+                    );
+
+                } catch (error) {
+
+                    return [];
+
+                }
+
+            }
+
+
+
+            /* =====================================
+               OPEN ORDER DETAILS
+            ===================================== */
+
+            function openOrderDetails(order) {
+
+
+                document
+                    .getElementById("detailsCakeName")
+                    .textContent =
+                    order.name || "Cake";
+
+
+                document
+                    .getElementById("detailsOrderId")
+                    .textContent =
+                    "#" + (order.id || "N/A");
+
+
+                document
+                    .getElementById("detailsDate")
+                    .textContent =
+                    order.date || "N/A";
+
+
+                document
+                    .getElementById("detailsStatus")
+                    .textContent =
+                    order.status || "Pending";
+
+
+                document
+                    .getElementById("detailsQuantity")
+                    .textContent =
+                    order.quantity || 1;
+
+
+                document
+                    .getElementById("detailsPrice")
+                    .textContent =
+                    order.price || "₦0";
+
+
+                document
+                    .getElementById("detailsTotal")
+                    .textContent =
+                    order.total ||
+                    order.price ||
+                    "₦0";
+
+
+
+                /* =================================
+                   ORDER IMAGE
+                ================================= */
+
+                const imageContainer =
+                    document.getElementById(
+                        "detailsImageContainer"
+                    );
+
+
+                if (order.image) {
+
+                    imageContainer.innerHTML = `
+
+                        <img
+                            src="${order.image}"
+                            alt="${order.name || "Cake"}"
+                        >
+
+                    `;
+
+                } else {
+
+                    imageContainer.innerHTML = `
+
+                        <div class="details-placeholder">
+
+                            <i class="fa-solid fa-cake-candles"></i>
+
+                        </div>
+
+                    `;
+
+                }
+
+
+
+                /* =================================
+                   SHOW MODAL
+                ================================= */
+
+                orderDetailsModal.classList.add(
+                    "show"
+                );
+
+
+                document.body.classList.add(
+                    "modal-open"
+                );
+
+            }
+
+
+
+            /* =====================================
+               CLOSE ORDER DETAILS
+            ===================================== */
+
+            function closeOrderDetails() {
+
+                orderDetailsModal.classList.remove(
+                    "show"
+                );
+
+
+                document.body.classList.remove(
+                    "modal-open"
+                );
+
+            }
+
+
+
+            /* =====================================
+               DISPLAY ORDERS
+            ===================================== */
+
+            function displayOrders() {
+
+
+                const orders =
+                    getOrders();
+
+
+                ordersContainer.innerHTML = "";
+
+
+
+                /* NO ORDERS */
+
+                if (orders.length === 0) {
+
+                    ordersEmpty.style.display =
+                        "flex";
+
+                    ordersContainer.style.display =
+                        "none";
+
+                    return;
+
+                }
+
+
+
+                /* HAS ORDERS */
+
+                ordersEmpty.style.display =
+                    "none";
+
+                ordersContainer.style.display =
+                    "flex";
+
+
+
+                orders.forEach(
+                    function (order) {
+
+
+                        const orderCard =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        orderCard.className =
+                            "order-card";
+
+
+                        orderCard.innerHTML = `
+
+                            <div class="order-card-top">
+
+                                <div>
+
+                                    <p class="order-number">
+                                        ORDER #${order.id}
+                                    </p>
+
+                                    <p class="order-date">
+                                        ${order.date}
+                                    </p>
+
+                                </div>
+
+
+                                <span class="order-status">
+                                    ${order.status || "Pending"}
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="order-card-body">
+
+                                <div class="order-image">
+
+                                    ${
+                                        order.image
+                                        ?
+                                        `
+                                        <img
+                                            src="${order.image}"
+                                            alt="${order.name}"
+                                        >
+                                        `
+                                        :
+                                        `
+                                        <div class="order-image-placeholder">
+                                            <i class="fa-solid fa-cake-candles"></i>
+                                        </div>
+                                        `
+                                    }
+
+                                </div>
+
+
+                                <div class="order-info">
+
+                                    <h3>
+                                        ${order.name}
+                                    </h3>
+
+                                    <p>
+                                        Quantity:
+                                        ${order.quantity || 1}
+                                    </p>
+
+                                    <strong>
+                                        ${order.price || "₦0"}
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="order-card-bottom">
+
+                                <span>
+                                    Total:
+                                    ${order.total || order.price || "₦0"}
+                                </span>
+
+
+                                <button
+                                    type="button"
+                                    class="order-details-btn">
+
+                                    View Details
+
+                                    <i class="fa-solid fa-arrow-right"></i>
+
+                                </button>
+
+                            </div>
+
+                        `;
+
+
+
+                        /* =================================
+                           VIEW DETAILS BUTTON
+                        ================================= */
+
+                        const detailsButton =
+                            orderCard.querySelector(
+                                ".order-details-btn"
+                            );
+
+
+                        detailsButton.addEventListener(
+                            "click",
+                            function () {
+
+                                openOrderDetails(
+                                    order
+                                );
+
+                            }
+                        );
+
+
+
+                        ordersContainer.appendChild(
+                            orderCard
+                        );
+
+                    }
+                );
+
+            }
+
+
+
+            /* =====================================
+               CLOSE BUTTON
+            ===================================== */
+
+            orderDetailsClose.addEventListener(
+                "click",
+                closeOrderDetails
+            );
+
+
+            detailsDoneBtn.addEventListener(
+                "click",
+                closeOrderDetails
+            );
+
+
+
+            /* =====================================
+               CLOSE WHEN CLICKING OUTSIDE
+            ===================================== */
+
+            orderDetailsModal.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        event.target ===
+                        orderDetailsModal
+                    ) {
+
+                        closeOrderDetails();
+
+                    }
+
+                }
+            );
+
+
+
+            /* =====================================
+               DISPLAY ORDERS
+            ===================================== */
+
+            displayOrders();
+
+        }
+    );
+
+    </script>
+
+        <script>
+(function () {
+
+    const savedTheme =
+        localStorage.getItem("aliceTheme") || "light";
+
+    document.body.classList.add(
+        "theme-" + savedTheme
+    );
+
+})();
+</script>
+  
+
+</body>
+
+</html>

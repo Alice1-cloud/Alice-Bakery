@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Delivery Address | Alice's Bakery</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <main class="delivery-page">
+
+        <!-- BACK BUTTON -->
+
+        <a href="Profile.html" class="delivery-back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to home
+
+        </a>
+
+
+        <!-- HEADER -->
+
+        <section class="delivery-header">
+
+            <p class="delivery-label">
+                ✦ DELIVERY DETAILS ✦
+            </p>
+
+            <h1>
+                Where should we
+                <span>deliver?</span>
+            </h1>
+
+            <p>
+                Enter your delivery information so we can
+                bring your sweet order right to your door.
+            </p>
+
+        </section>
+
+
+        <!-- DELIVERY FORM -->
+
+        <section class="delivery-form-container">
+
+            <form id="deliveryForm">
+
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label for="fullName">
+                        <i class="fa-regular fa-user"></i>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        required>
+
+                </div>
+
+
+                <!-- PHONE NUMBER -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        <i class="fa-solid fa-phone"></i>
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter your phone number"
+                        required>
+
+                </div>
+
+
+                <!-- ADDRESS -->
+
+                <div class="form-group">
+
+                    <label for="address">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        placeholder="Enter your full delivery address"
+                        rows="4"
+                        required></textarea>
+
+                </div>
+
+              
+              <!-- STATE -->
+            <div class="form-group">
+
+    <label for="state">
+        <i class="fa-solid fa-map"></i>
+        State
+    </label>
+
+    <select id="state" name="state" required>
+
+        <option value="">Select your state</option>
+
+        <option value="Abia">Abia</option>
+        <option value="Adamawa">Adamawa</option>
+        <option value="Akwa Ibom">Akwa Ibom</option>
+        <option value="Anambra">Anambra</option>
+        <option value="Bauchi">Bauchi</option>
+        <option value="Bayelsa">Bayelsa</option>
+        <option value="Benue">Benue</option>
+        <option value="Borno">Borno</option>
+        <option value="Cross River">Cross River</option>
+        <option value="Delta">Delta</option>
+        <option value="Ebonyi">Ebonyi</option>
+        <option value="Edo">Edo</option>
+        <option value="Ekiti">Ekiti</option>
+        <option value="Enugu">Enugu</option>
+        <option value="Gombe">Gombe</option>
+        <option value="Imo">Imo</option>
+        <option value="Jigawa">Jigawa</option>
+        <option value="Kaduna">Kaduna</option>
+        <option value="Kano">Kano</option>
+        <option value="Katsina">Katsina</option>
+        <option value="Kebbi">Kebbi</option>
+        <option value="Kogi">Kogi</option>
+        <option value="Kwara">Kwara</option>
+        <option value="Lagos">Lagos</option>
+        <option value="Nasarawa">Nasarawa</option>
+        <option value="Niger">Niger</option>
+        <option value="Ogun">Ogun</option>
+        <option value="Ondo">Ondo</option>
+        <option value="Osun">Osun</option>
+        <option value="Oyo">Oyo</option>
+        <option value="Plateau">Plateau</option>
+        <option value="Rivers">Rivers</option>
+        <option value="Sokoto">Sokoto</option>
+        <option value="Taraba">Taraba</option>
+        <option value="Yobe">Yobe</option>
+        <option value="Zamfara">Zamfara</option>
+        <option value="Federal Capital Territory">Federal Capital Territory</option>
+
+    </select>
+
+</div>
+
+              <!-- CITY -->
+
+               <div class="form-group">
+
+    <label for="city">
+        <i class="fa-solid fa-city"></i>
+        City
+    </label>
+
+    <select id="city" name="city" required>
+
+        <option value="">Select your city</option>
+
+    </select>
+
+</div> 
+
+                <!-- DELIVERY NOTE -->
+
+                <div class="form-group">
+
+                    <label for="deliveryNote">
+
+                        <i class="fa-regular fa-note-sticky"></i>
+
+                        Delivery Note
+                        <span>(Optional)</span>
+
+                    </label>
+
+                    <textarea
+                        id="deliveryNote"
+                        name="deliveryNote"
+                        placeholder="Any special instructions for delivery?"
+                        rows="3"></textarea>
+
+                </div>
+
+
+                <!-- SAVE ADDRESS -->
+
+                <label class="save-address">
+
+                    <input
+                        type="checkbox"
+                        id="saveAddress">
+
+                    <span>
+                        Save this address for future orders
+                    </span>
+
+                </label>
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    class="continue-delivery-btn">
+
+                    Continue to Payment
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form =
+        document.getElementById("deliveryForm");
+
+    const state =
+        document.getElementById("state");
+
+    const city =
+        document.getElementById("city");
+
+    const saveAddress =
+        document.getElementById("saveAddress");
+
+
+    /* =========================================
+       NIGERIAN CITIES BY STATE
+    ========================================= */
+
+    const cities = {
+
+        "Abia": [
+            "Aba",
+            "Umuahia",
+            "Ohafia"
+        ],
+
+        "Adamawa": [
+            "Yola",
+            "Mubi",
+            "Jimeta"
+        ],
+
+        "Akwa Ibom": [
+            "Uyo",
+            "Eket",
+            "Ikot Ekpene",
+            "Oron"
+        ],
+
+        "Anambra": [
+            "Awka",
+            "Onitsha",
+            "Nnewi",
+            "Ekwulobia"
+        ],
+
+        "Bauchi": [
+            "Bauchi",
+            "Azare",
+            "Misau"
+        ],
+
+        "Bayelsa": [
+            "Yenagoa",
+            "Brass",
+            "Ogbia"
+        ],
+
+        "Benue": [
+            "Makurdi",
+            "Gboko",
+            "Otukpo"
+        ],
+
+        "Borno": [
+            "Maiduguri",
+            "Biu",
+            "Dikwa"
+        ],
+
+        "Cross River": [
+            "Calabar",
+            "Ogoja",
+            "Ikom"
+        ],
+
+        "Delta": [
+            "Asaba",
+            "Warri",
+            "Sapele",
+            "Ughelli"
+        ],
+
+        "Ebonyi": [
+            "Abakaliki",
+            "Afikpo",
+            "Onueke"
+        ],
+
+        "Edo": [
+            "Benin City",
+            "Auchi",
+            "Ekpoma"
+        ],
+
+        "Ekiti": [
+            "Ado-Ekiti",
+            "Ikere",
+            "Ijero"
+        ],
+
+        "Enugu": [
+            "Enugu",
+            "Nsukka",
+            "Oji River"
+        ],
+
+        "Gombe": [
+            "Gombe",
+            "Kumo",
+            "Deba"
+        ],
+
+        "Imo": [
+            "Owerri",
+            "Orlu",
+            "Okigwe"
+        ],
+
+        "Jigawa": [
+            "Dutse",
+            "Hadejia",
+            "Gumel"
+        ],
+
+        "Kaduna": [
+            "Kaduna",
+            "Zaria",
+            "Kafanchan"
+        ],
+
+        "Kano": [
+            "Kano",
+            "Wudil",
+            "Gwarzo"
+        ],
+
+        "Katsina": [
+            "Katsina",
+            "Daura",
+            "Funtua"
+        ],
+
+        "Kebbi": [
+            "Birnin Kebbi",
+            "Argungu",
+            "Yauri"
+        ],
+
+        "Kogi": [
+            "Lokoja",
+            "Okene",
+            "Idah"
+        ],
+
+        "Kwara": [
+            "Ilorin",
+            "Offa",
+            "Jebba"
+        ],
+
+        "Lagos": [
+            "Ikeja",
+            "Lagos Island",
+            "Lekki",
+            "Surulere",
+            "Yaba",
+            "Ikorodu",
+            "Badagry",
+            "Epe"
+        ],
+
+        "Nasarawa": [
+            "Lafia",
+            "Keffi",
+            "Karu",
+            "Akwanga"
+        ],
+
+        "Niger": [
+            "Minna",
+            "Suleja",
+            "Bida"
+        ],
+
+        "Ogun": [
+            "Abeokuta",
+            "Ijebu-Ode",
+            "Sagamu",
+            "Ota"
+        ],
+
+        "Ondo": [
+            "Akure",
+            "Ondo City",
+            "Owo",
+            "Ikare"
+        ],
+
+        "Osun": [
+            "Osogbo",
+            "Ile-Ife",
+            "Ilesa",
+            "Ikire"
+        ],
+
+        "Oyo": [
+            "Ibadan",
+            "Ogbomoso",
+            "Oyo",
+            "Iseyin"
+        ],
+
+        "Plateau": [
+            "Jos",
+            "Bukuru",
+            "Pankshin"
+        ],
+
+        "Rivers": [
+            "Port Harcourt",
+            "Bonny",
+            "Obio-Akpor",
+            "Okrika"
+        ],
+
+        "Sokoto": [
+            "Sokoto",
+            "Tambuwal",
+            "Wurno"
+        ],
+
+        "Taraba": [
+            "Jalingo",
+            "Wukari",
+            "Bali"
+        ],
+
+        "Yobe": [
+            "Damaturu",
+            "Potiskum",
+            "Gashua"
+        ],
+
+        "Zamfara": [
+            "Gusau",
+            "Kaura Namoda",
+            "Talata Mafara"
+        ],
+
+        "Federal Capital Territory": [
+            "Abuja",
+            "Gwagwalada",
+            "Kuje",
+            "Bwari",
+            "Kubwa"
+        ]
+
+    };
+
+
+    /* =========================================
+       UPDATE CITY OPTIONS
+    ========================================= */
+
+    state.addEventListener("change", function () {
+
+        const selectedState =
+            this.value;
+
+        city.innerHTML =
+            '<option value="">Select your city</option>';
+
+
+        if (!selectedState) {
+            return;
+        }
+
+
+        const stateCities =
+            cities[selectedState] || [];
+
+
+        stateCities.forEach(function (cityName) {
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                cityName;
+
+            option.textContent =
+                cityName;
+
+            city.appendChild(option);
+
+        });
+
+    });
+
+
+    /* =========================================
+       LOAD SAVED ADDRESS
+    ========================================= */
+
+    function loadSavedAddress() {
+
+        const saved =
+            localStorage.getItem("aliceDeliveryAddress");
+
+        if (!saved) {
+            return;
+        }
+
+
+        try {
+
+            const address =
+                JSON.parse(saved);
+
+
+            document.getElementById("fullName").value =
+                address.fullName || "";
+
+
+            document.getElementById("phone").value =
+                address.phone || "";
+
+
+            document.getElementById("address").value =
+                address.address || "";
+
+
+            state.value =
+                address.state || "";
+
+
+            /*
+               Load cities for saved state
+            */
+
+            state.dispatchEvent(
+                new Event("change")
+            );
+
+
+            city.value =
+                address.city || "";
+
+
+            document.getElementById("deliveryNote").value =
+                address.deliveryNote || "";
+
+
+            saveAddress.checked = true;
+
+
+        } catch (error) {
+
+            console.log(
+                "Could not load saved address."
+            );
+
+        }
+
+    }
+
+
+    /* =========================================
+       POLISHED SUCCESS MESSAGE
+    ========================================= */
+
+    function showSavedMessage() {
+
+        const oldMessage =
+            document.querySelector(
+                ".delivery-success-message"
+            );
+
+        if (oldMessage) {
+            oldMessage.remove();
+        }
+
+
+        const message =
+            document.createElement("div");
+
+        message.className =
+            "delivery-success-message";
+
+
+        message.innerHTML = `
+
+            <div class="delivery-success-icon">
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+            <div class="delivery-success-text">
+
+                <strong>Address Saved!</strong>
+
+                <span>
+                    Your delivery address has been saved successfully.
+                </span>
+
+            </div>
+
+            <button
+                class="delivery-message-close"
+                type="button"
+                aria-label="Close">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        `;
+
+
+        document.body.appendChild(message);
+
+
+        setTimeout(function () {
+
+            message.classList.add("show");
+
+        }, 50);
+
+
+        const closeButton =
+            message.querySelector(
+                ".delivery-message-close"
+            );
+
+
+        closeButton.addEventListener(
+            "click",
+            function () {
+
+                message.classList.remove("show");
+
+                setTimeout(function () {
+
+                    if (message.parentElement) {
+                        message.remove();
+                    }
+
+                }, 350);
+
+            }
+        );
+
+
+        setTimeout(function () {
+
+            if (!message.parentElement) {
+                return;
+            }
+
+
+            message.classList.remove("show");
+
+
+            setTimeout(function () {
+
+                if (message.parentElement) {
+                    message.remove();
+                }
+
+            }, 350);
+
+        }, 3500);
+
+    }
+
+
+    /* =========================================
+       FORM SUBMISSION
+    ========================================= */
+
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const deliveryAddress = {
+
+                fullName:
+                    document.getElementById("fullName").value.trim(),
+
+                phone:
+                    document.getElementById("phone").value.trim(),
+
+                address:
+                    document.getElementById("address").value.trim(),
+
+                city:
+                    city.value,
+
+                state:
+                    state.value,
+
+                deliveryNote:
+                    document.getElementById("deliveryNote").value.trim()
+
+            };
+
+
+            /*
+               Save address permanently
+            */
+
+            if (saveAddress.checked) {
+
+                localStorage.setItem(
+                    "aliceDeliveryAddress",
+                    JSON.stringify(deliveryAddress)
+                );
+
+
+                showSavedMessage();
+
+            }
+
+
+            /*
+               We will connect this to the
+               payment page next.
+            */
+
+        }
+    );
+
+
+    /* =========================================
+       LOAD ADDRESS WHEN PAGE OPENS
+    ========================================= */
+
+    loadSavedAddress();
+
+});
+
+    </script>
+
+      <script>
+(function () {
+
+    const savedTheme =
+        localStorage.getItem("aliceTheme") || "light";
+
+    document.body.classList.add(
+        "theme-" + savedTheme
+    );
+
+})();
+</script>
+  
+  
+</body>
+
+</html>

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alice's Bakery</title>
+  
+    <link rel="stylesheet" href="Style.css">
+    
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+  <div class="top-bar">
+        ✨🎉 15% OFF YOUR FIRST ORDER
+        <span>|</span>
+        Use Code: SWEET15 ✨
+    </div>
+
+    <header class="navbar">
+
+    <div class="logo">
+        <img src="Logo4.png" alt="Alice's Bakery">
+    </div>
+
+    <nav class="nav-menu">
+
+        <a href="#" class="active">HOME</a>
+        <a href="Cakes.html">CAKES</a>
+        <a href="Custom-order.html">CUSTOM ORDER</a>
+        <a href="About.html">ABOUT US</a>
+        <a href="Gallery.html">GALLERY</a>
+        <a href="Review.html">REVIEWS</a>
+        <a href="Contact.html">CONTACT</a>
+
+    </nav>
+
+    <div class="nav-icons">
+
+        <a href="Search.html">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <a href="Profile.html">
+            <i class="fa-regular fa-user"></i>
+        </a>
+
+        <a href="cart.html" class="cart">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cartCount">0</span>
+</a>
+
+    </div>
+
+</header>
+
+  <section class="hero">
+     <div class="hero-content">
+
+        <p class="hero-small">HANDCRAFTED WITH LOVE 💗</p>
+
+        <h1>
+            Cakes That<br>
+            <span>Make Moments</span>
+        </h1>
+
+        <p class="hero-script">Unforgettable ♡</p>
+
+        <p class="hero-text">
+            From birthdays to weddings and every sweet
+            celebration in between — we bake happiness
+            you can taste.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="Cakes.html" class="btn-primary">EXPLORE CAKES →</a>
+             <a href="Custom-order.html" class="btn-secondary">
+    CUSTOM ORDER
+    <i class="fa-solid fa-cake-candles"></i>
+</a>
+
+</div>
+  
+        <!-- THREE FEATURES -->
+        <div class="hero-features">
+
+            <div class="hero-feature">
+                <i class="fa-solid fa-leaf"></i>
+                <span>100% FRESH<br>INGREDIENTS</span>
+            </div>
+
+            <div class="hero-feature">
+                <i class="fa-solid fa-cake-candles"></i>
+                <span>BAKED DAILY<br>WITH LOVE</span>
+            </div>
+
+            <div class="hero-feature">
+                <i class="fa-solid fa-truck"></i>
+                <span>ON TIME<br>DELIVERY</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+         <!-- =========================
+     SHOP BY OCCASION
+========================= -->
+
+<section class="occasions">
+
+    <p class="section-label">
+    <span>❧</span>
+    SHOP BY OCCASION
+    <span>❧</span>
+</p>
+
+    <h2>The Perfect Cake for Every Occasion</h2>
+
+    <div class="occasion-divider">
+    <span></span>
+    <i class="fa-solid fa-heart"></i>
+    <span></span>
+</div> 
+
+    <div class="occasion-list">
+
+        <div class="occasion">
+            <img src="Birthdaycake.png" alt="Birthday Cakes">
+            <p>Birthday Cakes</p>
+            <span>♥</span>
+        </div>
+
+        <div class="occasion">
+            <img src="Weddingcake.png" alt="Wedding Cakes">
+            <p>Wedding Cakes</p>
+            <span>♥</span>
+        </div>
+
+        <div class="occasion">
+            <img src="Anniversarycake.png" alt="Anniversary Cakes">
+            <p>Anniversary Cakes</p>
+            <span>♥</span>
+        </div>
+
+        <div class="occasion">
+            <img src="cupcake.png" alt="Cupcakes">
+            <p>Cupcakes</p>
+            <span>♥</span>
+        </div>
+
+        <div class="occasion">
+            <img src="cakepop.png" alt="Cake Pops">
+            <p>Cake Pops</p>
+            <span>♥</span>
+        </div>
+
+        <div class="occasion">
+            <img src="Allcake.png" alt="All Cakes">
+            <p>All Cakes</p>
+            <span>♥</span>
+        </div>
+
+    </div>
+
+</section>
+
+      <!-- =========================
+     OUR MOST LOVED CREATIONS
+========================= -->
+
+<section class="loved-creations">
+
+    <p class="section-label">OUR MOST LOVED</p>
+
+    <h2>Sweet Creations You'll Love</h2>
+
+    <div class="occasion-divider">
+        <span></span>
+        <i class="fa-solid fa-heart"></i>
+        <span></span>
+    </div>
+
+         <div class="cake-grid">
+
+    <div class="cake-card">
+        <img src="vanillacake.png" alt="vanilla Cake">
+        <p class="cake-name">vanilla Dream</p>
+        <p class="cake-price">₦21,000</p>
+        <button class="add-cart" onclick="addToCart('Vanilla Dream')">+</button>
+    </div>
+
+    <div class="cake-card">
+        <img src="chocolatecake.png" alt="chocolate cake">
+        <p class="cake-name">choco Indulgence</p>
+        <p class="cake-price">₦25,000</p>
+        <button class="add-cart" onclick="addToCart('Chocolate Indulgence')">+</button>
+    </div>
+
+    <div class="cake-card">
+        <img src="strawberrycake.png" alt="Strawberry Cake">
+        <p class="cake-name">Strawberry Bliss</p>
+        <p class="cake-price">₦28,000</p>
+        <button class="add-cart" onclick="addToCart('Strawberry Bliss')">+</button>
+    </div>
+
+    <div class="cake-card">
+        <img src="redvelvetcake.png" alt="Red Velvet Cake">
+        <p class="cake-name">Red Velvet</p>
+        <p class="cake-price">₦27,000</p>
+        <button class="add-cart" onclick="addToCart('Red Velvet')">+</button>
+    </div>
+
+</div>
+
+<a href="Cakes.html" class="view-cakes-btn">VIEW ALL CAKES ♡</a>
+  
+</section>
+
+  <!-- =========================
+     ABOUT US
+========================= -->
+
+<section class="about-section">
+
+    <div class="about-image">
+        <img src="Aboutuscake.png" alt="Alice's Bakery Cake">
+    </div>
+
+    <div class="about-content">
+
+        <p class="section-label">ABOUT US</p>
+
+        <h2>Baking Memories,<br>One Slice at a Time</h2>
+
+        <p>
+            At Alice's Bakery, every cake is made with love,
+            care, and the finest ingredients. From everyday
+            sweet treats to unforgettable celebrations,
+            we create cakes that make every moment special.
+        </p>
+
+        <a href="About.html" class="about-btn">LEARN MORE ♡</a>
+
+        <div class="about-features">
+
+    <div class="about-feature">
+        <i class="fa-solid fa-bowl-food"></i>
+        <div>
+            <h3>Premium Ingredients</h3>
+            <p>We use only the finest and freshest ingredients.</p>
+        </div>
+    </div>
+
+    <div class="about-feature">
+        <i class="fa-solid fa-cake-candles"></i>
+        <div>
+            <h3>Expert Bakers</h3>
+            <p>Our skilled bakers bring creativity and perfection to every cake.</p>
+        </div>
+    </div>
+
+    <div class="about-feature">
+        <i class="fa-solid fa-truck"></i>
+        <div>
+            <h3>On-Time Delivery</h3>
+            <p>Your celebrations are important, so we deliver on time.</p>
+        </div>
+    </div>
+
+    <div class="about-feature">
+        <i class="fa-regular fa-heart"></i>
+        <div>
+            <h3>Made with Love</h3>
+            <p>Every cake is baked with care, passion, and lots of love.</p>
+        </div>
+    </div>
+
+</div>
+
+    </div>
+
+</section>
+
+  <!-- =========================
+     FEATURE BAR
+========================= -->
+
+<section class="feature-bar">
+
+    <div class="feature-item">
+        <i class="fa-solid fa-truck"></i>
+        <div>
+            <h3>FREE DELIVERY</h3>
+            <p>On orders over ₦20,000</p>
+        </div>
+    </div>
+
+    <div class="feature-item">
+        <i class="fa-solid fa-credit-card"></i>
+        <div>
+            <h3>SECURE PAYMENT</h3>
+            <p>100% secure checkout</p>
+        </div>
+    </div>
+
+    <div class="feature-item">
+        <i class="fa-solid fa-cake-candles"></i>
+        <div>
+            <h3>FRESHLY BAKED</h3>
+            <p>Made to order</p>
+        </div>
+    </div>
+
+    <div class="feature-item">
+        <i class="fa-solid fa-headset"></i>
+        <div>
+            <h3>CUSTOMER SUPPORT</h3>
+            <p>We're here to help</p>
+        </div>
+    </div>
+
+</section>
+
+  <!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <!-- Logo -->
+        <div class="footer-brand">
+            <img src="Logo4.png" alt="Alice's Bakery">
+
+            <p>
+                Freshly baked cakes made with love
+                for every special moment.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+            <h3>QUICK LINKS</h3>
+
+            <a href="Index.html">Home</a>
+            <a href="Cakes.html">Cakes</a>
+            <a href="Custom-order.html">Custom Order</a>
+            <a href="About.html">About Us</a>
+        </div>
+
+        <!-- More Links -->
+        <div class="footer-column">
+            <h3>EXPLORE</h3>
+
+            <a href="Gallery.html">Gallery</a>
+            <a href="Review.html">Reviews</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-column">
+            <h3>FOLLOW US</h3>
+
+            <div class="social-icons">
+              <a>
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a>
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a>
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+                <a>
+                    <i class="fa-brands fa-pinterest-p"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Newsletter -->
+     <div class="newsletter">
+
+    <h3>NEWSLETTER</h3>
+
+    <p>
+        Subscribe to get special offers
+        and sweet updates!
+    </p>
+
+    <form class="newsletter-form" id="newsletterForm">
+
+        <input
+            type="email"
+            id="newsletterEmail"
+            placeholder="Enter your email"
+        >
+
+        <button type="submit">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+
+    </form>
+
+</div>
+      
+    <div class="footer-bottom">
+        <p>© 2026 Alice's Bakery. All Rights Reserved.</p>
+    </div>
+
+</footer>
+
+  <script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const cakes = {
+
+    "Vanilla Dream": {
+        price: 21000,
+        image: "vanillacake.png"
+    },
+
+    "Chocolate Indulgence": {
+        price: 25000,
+        image: "chocolatecake.png"
+    },
+
+    "Strawberry Bliss": {
+        price: 28000,
+        image: "strawberrycake.png"
+    },
+
+    "Red Velvet": {
+        price: 27000,
+        image: "redvelvetcake.png"
+    }
+
+};
+
+
+function addToCart(cakeName) {
+
+    const cake = cakes[cakeName];
+
+    if (!cake) {
+        return;
+    }
+
+    const existingCake = cart.find(function(item) {
+        return item.name === cakeName;
+    });
+
+    if (existingCake) {
+
+        existingCake.quantity++;
+
+    } else {
+
+        cart.push({
+            name: cakeName,
+            price: cake.price,
+            image: cake.image,
+            quantity: 1
+        });
+
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount();
+
+    showCartMessage(cakeName);
+
+}
+
+
+function updateCartCount() {
+
+    const cartNumber = document.querySelector("#cartCount");
+
+    if (!cartNumber) {
+        return;
+    }
+
+    let totalQuantity = 0;
+
+    cart.forEach(function(item) {
+        totalQuantity += item.quantity;
+    });
+
+    cartNumber.textContent = totalQuantity;
+
+}
+
+
+function showCartMessage(cakeName) {
+
+    const message = document.createElement("div");
+
+    message.className = "cart-message";
+
+    message.innerHTML = `
+        <i class="fa-solid fa-circle-check"></i>
+
+        <div>
+            <strong>Added to cart!</strong>
+            <span>${cakeName} has been added to your cart.</span>
+        </div>
+
+        <button onclick="this.parentElement.remove()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    `;
+
+    document.body.appendChild(message);
+
+    setTimeout(function() {
+
+        message.classList.add("hide");
+
+        setTimeout(function() {
+            message.remove();
+        }, 500);
+
+    }, 2500);
+
+}
+
+
+updateCartCount();
+
+</script>
+
+        <script>
+(function () {
+
+    const savedTheme =
+        localStorage.getItem("aliceTheme") || "light";
+
+    document.body.classList.add(
+        "theme-" + savedTheme
+    );
+
+})();
+</script>
+
+  <script>
+
+const newsletterForm =
+    document.getElementById("newsletterForm");
+
+const newsletterEmail =
+    document.getElementById("newsletterEmail");
+
+
+newsletterForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const email =
+        newsletterEmail.value.trim();
+
+
+    // EMPTY EMAIL
+    if (email === "") {
+
+        showNewsletterMessage(
+            "Please enter your email address.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    // INVALID EMAIL
+    const emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    if (!emailPattern.test(email)) {
+
+        showNewsletterMessage(
+            "Please enter a valid email address.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    // SUCCESS
+    showNewsletterMessage(
+        "Successfully subscribed!",
+        "success"
+    );
+
+
+    newsletterEmail.value = "";
+
+});
+
+
+// =====================================
+// NEWSLETTER POPUP
+// =====================================
+
+function showNewsletterMessage(messageText, type) {
+
+    const oldMessage =
+        document.querySelector(".newsletter-message");
+
+    if (oldMessage) {
+        oldMessage.remove();
+    }
+
+
+    const message =
+        document.createElement("div");
+
+    message.className =
+        "newsletter-message " + type;
+
+
+    if (type === "success") {
+
+        message.innerHTML = `
+            <i class="fa-solid fa-circle-check"></i>
+
+            <div>
+                <strong>Success!</strong>
+                <span>${messageText}</span>
+            </div>
+
+            <button type="button"
+                onclick="this.parentElement.remove()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        `;
+
+    } else {
+
+        message.innerHTML = `
+            <i class="fa-solid fa-circle-exclamation"></i>
+
+            <div>
+                <strong>Oops!</strong>
+                <span>${messageText}</span>
+            </div>
+
+            <button type="button"
+                onclick="this.parentElement.remove()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        `;
+
+    }
+
+
+    document.body.appendChild(message);
+
+
+    setTimeout(function() {
+
+        message.classList.add("hide");
+
+        setTimeout(function() {
+
+            message.remove();
+
+        }, 400);
+
+    }, 3000);
+
+}
+
+</script>
+  
+</body>
+  
+</html>

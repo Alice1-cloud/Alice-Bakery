@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | Alice's Bakery</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- PROFILE PAGE -->
+
+    <main class="profile-page">
+
+        <!-- BACK TO HOME -->
+
+        <a href="index.html" class="profile-back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Home
+        </a>
+
+
+        <!-- PROFILE HEADER -->
+
+        <section class="profile-header">
+
+            <div class="profile-avatar">
+                <i class="fa-regular fa-user"></i>
+            </div>
+
+            <div class="profile-welcome">
+
+                <p class="profile-label">
+                    ✦ WELCOME BACK ✦
+                </p>
+
+                <h1>
+    Hello, <span id="profileWelcomeName">Alice!</span>
+</h1>
+
+                <p>
+                    Welcome to your Alice's Bakery profile.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE CONTENT -->
+
+        <section class="profile-content">
+
+            <!-- PERSONAL INFORMATION -->
+
+            <div class="profile-card">
+
+                <div class="profile-card-heading">
+
+                    <div>
+                        <p class="profile-small-label">
+                            YOUR DETAILS
+                        </p>
+
+                        <h2>Personal Information</h2>
+                    </div>
+
+                    <button class="edit-profile-btn">
+                        <i class="fa-solid fa-pen"></i>
+                        Edit
+                    </button>
+
+                </div>
+
+
+                <div class="profile-details">
+
+                    <div class="profile-detail">
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <div>
+                            <span>Name</span>
+                            <strong>Alice</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-detail">
+
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <div>
+                            <span>Email</span>
+                            <strong>alice@example.com</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-detail">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <div>
+                            <span>Phone</span>
+                            <strong>+234 000 000 0000</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACCOUNT OPTIONS -->
+
+            <div class="profile-options">
+
+                <a href="Orders.html" class="profile-option">
+
+                    <div class="profile-option-icon">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+
+                    <div class="profile-option-text">
+                        <h3>My Orders</h3>
+                        <p>View your previous and current orders.</p>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-right profile-arrow"></i>
+
+                </a>
+
+
+                <a href="favorites.html" class="profile-option">
+
+                    <div class="profile-option-icon">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <div class="profile-option-text">
+                        <h3>My Favorites</h3>
+                        <p>View cakes and treats you've saved.</p>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-right profile-arrow"></i>
+
+                </a>
+
+
+                <a href="delivery.html" class="profile-option">
+
+                    <div class="profile-option-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div class="profile-option-text">
+                        <h3>Delivery Address</h3>
+                        <p>Manage your saved delivery address.</p>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-right profile-arrow"></i>
+
+                </a>
+
+
+                <a href="settings.html" class="profile-option">
+
+                    <div class="profile-option-icon">
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
+
+                    <div class="profile-option-text">
+                        <h3>Account Settings</h3>
+                        <p>Manage your account preferences.</p>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-right profile-arrow"></i>
+
+                </a>
+
+            </div>
+
+
+            <!-- LOG OUT -->
+
+            <button class="profile-logout-btn">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Log Out
+            </button>
+
+        </section>
+
+    </main>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =========================================
+       GET PROFILE ELEMENTS
+       ========================================= */
+
+    const editButton =
+        document.querySelector(".edit-profile-btn");
+
+    const logoutButton =
+        document.querySelector(".profile-logout-btn");
+
+    const detailBoxes =
+        document.querySelectorAll(".profile-detail");
+
+    const nameBox = detailBoxes[0];
+    const emailBox = detailBoxes[1];
+    const phoneBox = detailBoxes[2];
+
+
+    /* =========================================
+       CREATE CUSTOM POPUP
+       ========================================= */
+
+    const popup = document.createElement("div");
+
+    popup.id = "profilePopup";
+
+    popup.innerHTML = `
+
+        <div class="profile-popup-box">
+
+            <button
+                type="button"
+                class="profile-popup-close">
+                ×
+            </button>
+
+            <div class="profile-popup-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div class="profile-popup-label">
+                YOUR DETAILS
+            </div>
+
+            <h2>
+                Your profile is
+                <span>not complete yet</span>
+            </h2>
+
+            <p class="profile-popup-message">
+                Please enter your name before
+                saving your profile information.
+            </p>
+
+            <button
+                type="button"
+                class="profile-popup-ok">
+                OK, GOT IT
+            </button>
+
+        </div>
+
+    `;
+
+    document.body.appendChild(popup);
+
+
+    /* =========================================
+       POPUP STYLING
+       ========================================= */
+
+    const popupStyle =
+        document.createElement("style");
+
+    popupStyle.textContent = `
+
+        #profilePopup {
+
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            box-sizing: border-box;
+
+            background: rgba(55, 30, 40, 0.58);
+
+            z-index: 999999;
+
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+
+        }
+
+
+        #profilePopup.show {
+
+            display: flex;
+
+        }
+
+
+        .profile-popup-box {
+
+            position: relative;
+
+            width: 100%;
+            max-width: 390px;
+
+            box-sizing: border-box;
+
+            padding: 38px 28px 28px;
+
+            background: #ffffff;
+
+            border-radius: 28px;
+
+            text-align: center;
+
+            box-shadow:
+                0 20px 60px
+                rgba(70, 30, 45, 0.30);
+
+            animation:
+                profilePopupAnimation
+                0.25s ease;
+
+        }
+
+
+        @keyframes profilePopupAnimation {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px)
+                    scale(0.95);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        .profile-popup-close {
+
+            position: absolute;
+
+            top: 13px;
+            right: 13px;
+
+            width: 38px;
+            height: 38px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #fdebf2;
+
+            color: #a7466b;
+
+            font-size: 25px;
+
+            line-height: 1;
+
+            cursor: pointer;
+
+        }
+
+
+        .profile-popup-icon {
+
+            width: 70px;
+            height: 70px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #fdebf2;
+
+            color: #ae4b70;
+
+            font-size: 27px;
+
+        }
+
+
+        .profile-popup-label {
+
+            margin-bottom: 12px;
+
+            color: #b44e73;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .profile-popup-box h2 {
+
+            margin: 0;
+
+            color: #40242d;
+
+            font-family: Georgia, serif;
+
+            font-size: 29px;
+
+            line-height: 1.2;
+
+        }
+
+
+        .profile-popup-box h2 span {
+
+            display: block;
+
+            margin-top: 4px;
+
+            color: #ad456c;
+
+            font-style: italic;
+
+        }
+
+
+        .profile-popup-message {
+
+            margin: 20px auto 25px;
+
+            max-width: 320px;
+
+            color: #765e67;
+
+            font-size: 16px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .profile-popup-ok {
+
+            width: 100%;
+
+            min-height: 53px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #ad456c;
+
+            color: #ffffff;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+        }
+
+
+        .profile-popup-ok:active {
+
+            transform: scale(0.98);
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .profile-popup-box {
+
+                max-width: 350px;
+
+                padding:
+                    35px
+                    23px
+                    25px;
+
+            }
+
+            .profile-popup-box h2 {
+
+                font-size: 27px;
+
+            }
+
+        }
+
+    `;
+
+    document.head.appendChild(popupStyle);
+
+
+    /* =========================================
+       POPUP FUNCTIONS
+       ========================================= */
+
+    const popupMessage =
+        popup.querySelector(
+            ".profile-popup-message"
+        );
+
+    const popupClose =
+        popup.querySelector(
+            ".profile-popup-close"
+        );
+
+    const popupOK =
+        popup.querySelector(
+            ".profile-popup-ok"
+        );
+
+
+    function showProfilePopup(message) {
+
+        popupMessage.textContent = message;
+
+        popup.classList.add("show");
+
+    }
+
+
+    function closeProfilePopup() {
+
+        popup.classList.remove("show");
+
+    }
+
+
+    popupClose.addEventListener(
+        "click",
+        closeProfilePopup
+    );
+
+
+    popupOK.addEventListener(
+        "click",
+        closeProfilePopup
+    );
+
+
+    popup.addEventListener(
+        "click",
+        function (event) {
+
+            if (event.target === popup) {
+
+                closeProfilePopup();
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       GET SAVED PROFILE
+       ========================================= */
+
+    function getProfileData() {
+
+        const saved =
+            localStorage.getItem("aliceProfile");
+
+        if (saved) {
+
+            try {
+
+                return JSON.parse(saved);
+
+            } catch (error) {
+
+                console.log(error);
+
+            }
+
+        }
+
+
+        return {
+
+            name: "Alice",
+
+            email: "alice@example.com",
+
+            phone: "+234 000 000 0000"
+
+        };
+
+    }
+
+
+    /* =========================================
+       DISPLAY PROFILE
+       ========================================= */
+
+    function displayProfile() {
+
+    const profile =
+        getProfileData();
+
+    nameBox.querySelector("strong")
+        .textContent = profile.name;
+
+    emailBox.querySelector("strong")
+        .textContent = profile.email;
+
+    phoneBox.querySelector("strong")
+        .textContent = profile.phone;
+
+
+    /* Update welcome name */
+
+    const welcomeName =
+        document.getElementById("profileWelcomeName");
+
+    if (welcomeName) {
+
+        welcomeName.textContent =
+            profile.name + "!";
+
+    }
+
+}
+
+
+    displayProfile();
+
+
+    /* =========================================
+       ESCAPE HTML
+       ========================================= */
+
+    function escapeHTML(text) {
+
+        return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* =========================================
+       EDIT BUTTON
+       ========================================= */
+
+    editButton.addEventListener(
+        "click",
+        function () {
+
+            if (
+                editButton.classList.contains(
+                    "editing"
+                )
+            ) {
+
+                saveProfile();
+
+            } else {
+
+                editProfile();
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       EDIT PROFILE
+       ========================================= */
+
+    function editProfile() {
+
+        const profile =
+            getProfileData();
+
+
+        nameBox.querySelector("strong")
+            .outerHTML = `
+
+            <input
+                type="text"
+                id="profileNameInput"
+                class="profile-edit-input"
+                value="${escapeHTML(profile.name)}"
+                placeholder="Enter your name"
+            >
+
+        `;
+
+
+        emailBox.querySelector("strong")
+            .outerHTML = `
+
+            <input
+                type="email"
+                id="profileEmailInput"
+                class="profile-edit-input"
+                value="${escapeHTML(profile.email)}"
+                placeholder="Enter your email"
+            >
+
+        `;
+
+
+        phoneBox.querySelector("strong")
+            .outerHTML = `
+
+            <input
+                type="tel"
+                id="profilePhoneInput"
+                class="profile-edit-input"
+                value="${escapeHTML(profile.phone)}"
+                placeholder="Enter your phone number"
+            >
+
+        `;
+
+
+        editButton.innerHTML = `
+
+            <i class="fa-solid fa-check"></i>
+            Save
+
+        `;
+
+
+        editButton.classList.add("editing");
+
+
+        document
+            .getElementById("profileNameInput")
+            .focus();
+
+    }
+
+
+    /* =========================================
+       SAVE PROFILE
+       ========================================= */
+
+    function saveProfile() {
+
+        const nameInput =
+            document.getElementById(
+                "profileNameInput"
+            );
+
+        const emailInput =
+            document.getElementById(
+                "profileEmailInput"
+            );
+
+        const phoneInput =
+            document.getElementById(
+                "profilePhoneInput"
+            );
+
+
+        const name =
+            nameInput.value.trim();
+
+        const email =
+            emailInput.value.trim();
+
+        const phone =
+            phoneInput.value.trim();
+
+
+        /* NAME EMPTY */
+
+        if (name === "") {
+
+            showProfilePopup(
+                "Please enter your name before saving your profile information."
+            );
+
+            nameInput.focus();
+
+            return;
+
+        }
+
+
+        /* EMAIL EMPTY */
+
+        if (email === "") {
+
+            showProfilePopup(
+                "Please enter your email address before saving your profile information."
+            );
+
+            emailInput.focus();
+
+            return;
+
+        }
+
+
+        /* INVALID EMAIL */
+
+        if (
+            !email.includes("@") ||
+            !email.includes(".")
+        ) {
+
+            showProfilePopup(
+                "Please enter a valid email address."
+            );
+
+            emailInput.focus();
+
+            return;
+
+        }
+
+
+        /* =====================================
+           SAVE TO LOCAL STORAGE
+           ===================================== */
+
+        const profile = {
+
+            name: name,
+
+            email: email,
+
+            phone: phone
+
+        };
+
+
+        localStorage.setItem(
+            "aliceProfile",
+            JSON.stringify(profile)
+        );
+
+
+        /* =====================================
+           CHANGE INPUTS BACK
+           ===================================== */
+
+        nameBox.querySelector("input")
+            .outerHTML = `
+                <strong>
+                    ${escapeHTML(name)}
+                </strong>
+            `;
+
+
+        emailBox.querySelector("input")
+            .outerHTML = `
+                <strong>
+                    ${escapeHTML(email)}
+                </strong>
+            `;
+
+
+        phoneBox.querySelector("input")
+            .outerHTML = `
+                <strong>
+                    ${escapeHTML(phone)}
+                </strong>
+            `;
+
+
+        /* =====================================
+           CHANGE SAVE BACK TO EDIT
+           ===================================== */
+
+        editButton.innerHTML = `
+
+            <i class="fa-solid fa-pen"></i>
+            Edit
+
+        `;
+
+
+        editButton.classList.remove(
+            "editing"
+        );
+
+      const welcomeName =
+    document.getElementById("profileWelcomeName");
+
+if (welcomeName) {
+
+    welcomeName.textContent =
+        name + "!";
+
+}
+
+
+        /* SUCCESS */
+
+        showSuccessMessage();
+
+    }
+
+
+    /* =========================================
+       SUCCESS MESSAGE
+       ========================================= */
+
+    function showSuccessMessage() {
+
+        const success =
+            document.createElement("div");
+
+        success.textContent =
+            "✓ Profile saved successfully!";
+
+        success.style.cssText = `
+
+            position: fixed;
+
+            top: 25px;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            z-index: 1000000;
+
+            background: #ad456c;
+
+            color: white;
+
+            padding:
+                14px
+                25px;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 10px 30px
+                rgba(80, 30, 50, .25);
+
+        `;
+
+        document.body.appendChild(success);
+
+
+        setTimeout(function () {
+
+            success.remove();
+
+        }, 2500);
+
+    }
+
+
+    /* =========================================
+       LOG OUT
+       ========================================= */
+
+logoutButton.addEventListener("click", function () {
+
+    const logoutPopup = document.createElement("div");
+
+    logoutPopup.className = "logout-popup";
+
+    logoutPopup.innerHTML = `
+
+        <div class="logout-popup-box">
+
+            <button
+                type="button"
+                class="logout-popup-close"
+                aria-label="Close">
+                ×
+            </button>
+
+
+            <div class="logout-popup-icon">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </div>
+
+
+            <p class="logout-popup-label">
+                ALICE'S BAKERY ♡
+            </p>
+
+
+            <h2>
+                Leaving so soon?
+            </h2>
+
+
+            <p class="logout-popup-text">
+                Are you sure you want to log out
+                of your Alice's Bakery profile?
+            </p>
+
+
+            <div class="logout-popup-buttons">
+
+                <button
+                    type="button"
+                    class="logout-cancel-btn">
+                    Stay Logged In
+                </button>
+
+
+                <button
+                    type="button"
+                    class="logout-confirm-btn">
+                    Log Out
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(logoutPopup);
+
+
+    /* Show popup */
+
+    setTimeout(function () {
+
+        logoutPopup.classList.add("show");
+
+    }, 10);
+
+
+    /* Close button */
+
+    const closeButton =
+        logoutPopup.querySelector(
+            ".logout-popup-close"
+        );
+
+
+    closeButton.addEventListener(
+        "click",
+        closeLogoutPopup
+    );
+
+
+    /* Stay logged in */
+
+    const cancelButton =
+        logoutPopup.querySelector(
+            ".logout-cancel-btn"
+        );
+
+
+    cancelButton.addEventListener(
+        "click",
+        closeLogoutPopup
+    );
+
+
+    /* Confirm logout */
+
+    const confirmButton =
+        logoutPopup.querySelector(
+            ".logout-confirm-btn"
+        );
+
+
+    confirmButton.addEventListener(
+        "click",
+        function () {
+
+            localStorage.removeItem(
+                "aliceProfile"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+    );
+
+
+    /* Click outside popup */
+
+    logoutPopup.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target === logoutPopup
+            ) {
+
+                closeLogoutPopup();
+
+            }
+
+        }
+    );
+
+
+    function closeLogoutPopup() {
+
+        logoutPopup.classList.remove("show");
+
+        setTimeout(function () {
+
+            logoutPopup.remove();
+
+        }, 250);
+
+    }
+
+});
+
+});
+
+</script>
+
+<script>
+(function () {
+
+    const savedTheme =
+        localStorage.getItem("aliceTheme") || "light";
+
+    document.body.classList.add(
+        "theme-" + savedTheme
+    );
+
+})();
+</script>
+
+  </body>
+
+</html>

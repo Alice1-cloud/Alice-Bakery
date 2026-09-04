@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Account Settings | Alice's Bakery</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <main class="settings-page">
+
+        <!-- BACK BUTTON -->
+
+        <a href="Profile.html" class="settings-back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Profile
+
+        </a>
+
+
+        <!-- HEADER -->
+
+        <section class="settings-header">
+
+            <p class="settings-label">
+                ✦ YOUR PREFERENCES ✦
+            </p>
+
+            <h1>
+                Account <span>Settings</span>
+            </h1>
+
+            <p>
+                Manage your Alice's Bakery account preferences.
+            </p>
+
+        </section>
+
+
+        <!-- SETTINGS -->
+
+        <section class="settings-container">
+
+
+            <!-- NOTIFICATIONS -->
+
+            <div class="settings-card">
+
+                <div class="settings-card-heading">
+
+                    <div class="settings-heading-icon">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p class="settings-small-label">
+                            PREFERENCES
+                        </p>
+
+                        <h2>Notifications</h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="setting-option">
+
+                    <div class="setting-option-text">
+
+                        <h3>Order Updates</h3>
+
+                        <p>
+                            Receive updates about your orders.
+                        </p>
+
+                    </div>
+
+                    <label class="toggle">
+
+                        <input
+                            type="checkbox"
+                            id="orderNotifications"
+                            checked
+                        >
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="setting-option">
+
+                    <div class="setting-option-text">
+
+                        <h3>Special Offers</h3>
+
+                        <p>
+                            Get notified about special offers and discounts.
+                        </p>
+
+                    </div>
+
+                    <label class="toggle">
+
+                        <input
+                            type="checkbox"
+                            id="offerNotifications"
+                        >
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- APPEARANCE -->
+
+<div class="settings-card">
+
+    <div class="settings-card-heading">
+
+        <div class="settings-heading-icon">
+
+            <i class="fa-solid fa-palette"></i>
+
+        </div>
+
+        <div>
+
+            <p class="settings-small-label">
+                PERSONALIZE
+            </p>
+
+            <h2>Appearance</h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="setting-option">
+
+        <div class="setting-option-text">
+
+            <h3>Theme</h3>
+
+            <p>
+                Choose how Alice's Bakery looks.
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="themePickerBtn"
+            class="theme-picker-btn">
+
+            <span id="selectedThemeName">
+                Light
+            </span>
+
+            <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+            <!-- ACCOUNT -->
+
+            <div class="settings-card">
+
+                <div class="settings-card-heading">
+
+                    <div class="settings-heading-icon">
+
+                        <i class="fa-solid fa-user-gear"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p class="settings-small-label">
+                            ACCOUNT
+                        </p>
+
+                        <h2>Account Preferences</h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-action">
+
+                    <div>
+
+                        <h3>Saved Profile</h3>
+
+                        <p>
+                            Your personal information is stored on this device.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="clearProfileBtn"
+                        class="settings-action-btn"
+                    >
+
+                        Clear
+
+                    </button>
+
+                </div>
+
+
+                <div class="settings-action">
+
+                    <div>
+
+                        <h3>Saved Delivery Address</h3>
+
+                        <p>
+                            Remove your saved delivery information.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="clearAddressBtn"
+                        class="settings-action-btn"
+                    >
+
+                        Clear
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- SAVE BUTTON -->
+
+            <button
+                type="button"
+                id="saveSettingsBtn"
+                class="settings-save-btn"
+            >
+
+                <i class="fa-solid fa-check"></i>
+
+                Save Settings
+
+            </button>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- SUCCESS POPUP -->
+
+    <div
+        class="settings-popup"
+        id="settingsPopup"
+    >
+
+        <div class="settings-popup-box">
+
+            <button
+                type="button"
+                class="settings-popup-close"
+                id="settingsPopupClose"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div class="settings-popup-icon">
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+
+            <p class="settings-popup-label">
+                SETTINGS SAVED
+            </p>
+
+
+            <h2>
+                All <span>set!</span>
+            </h2>
+
+
+            <p>
+                Your account preferences have been saved successfully.
+            </p>
+
+
+            <button
+                type="button"
+                class="settings-popup-btn"
+                id="settingsPopupOK"
+            >
+
+                OK, GOT IT
+
+            </button>
+
+        </div>
+
+    </div>
+
+  <!-- CLEAR CONFIRMATION POPUP -->
+
+<div class="clear-confirm-modal" id="clearConfirmModal">
+
+    <div class="clear-confirm-box">
+
+        <button
+            type="button"
+            class="clear-confirm-close"
+            id="clearConfirmClose">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="clear-confirm-icon">
+            <i class="fa-solid fa-trash-can"></i>
+        </div>
+
+        <p class="clear-confirm-label">
+            ✦ PLEASE CONFIRM ✦
+        </p>
+
+        <h2 id="clearConfirmTitle">
+            Clear Saved Profile?
+        </h2>
+
+        <p id="clearConfirmText">
+            Are you sure you want to clear your saved profile information?
+            This action cannot be undone.
+        </p>
+
+        <div class="clear-confirm-buttons">
+
+            <button
+                type="button"
+                class="clear-no-btn"
+                id="clearNoBtn">
+
+                No, Keep It
+
+            </button>
+
+            <button
+                type="button"
+                class="clear-yes-btn"
+                id="clearYesBtn">
+
+                Yes, Clear
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+  <!-- THEME PICKER POPUP -->
+
+<div
+    class="theme-modal"
+    id="themeModal">
+
+    <div class="theme-modal-box">
+
+        <!-- CLOSE -->
+
+        <button
+            type="button"
+            class="theme-modal-close"
+            id="themeModalClose">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <!-- ICON -->
+
+        <div class="theme-modal-icon">
+
+            <i class="fa-solid fa-palette"></i>
+
+        </div>
+
+
+        <!-- HEADER -->
+
+        <p class="theme-modal-label">
+            ✦ PERSONALIZE ✦
+        </p>
+
+        <h2>
+            Choose Your <span>Theme</span>
+        </h2>
+
+        <p class="theme-modal-subtitle">
+            Pick the look you love
+            <span>♥</span>
+        </p>
+
+
+        <!-- THEME OPTIONS -->
+
+        <div class="theme-options">
+
+
+            <!-- LIGHT -->
+
+            <button
+                type="button"
+                class="theme-option"
+                data-theme="light">
+
+                <div class="theme-option-icon light-icon">
+                    ☀️
+                </div>
+
+                <div class="theme-option-text">
+
+                    <strong>Light</strong>
+
+                    <span>
+                        Clean and bright
+                    </span>
+
+                </div>
+
+                <div class="theme-radio">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+            </button>
+
+
+            <!-- SOFT PINK -->
+
+            <button
+                type="button"
+                class="theme-option"
+                data-theme="soft">
+
+                <div class="theme-option-icon soft-icon">
+                    🌸
+                </div>
+
+                <div class="theme-option-text">
+
+                    <strong>Soft Pink</strong>
+
+                    <span>
+                        Our signature soft pink theme
+                    </span>
+
+                </div>
+
+                <div class="theme-radio">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+            </button>
+
+
+            <!-- ROSY PINK -->
+
+            <button
+                type="button"
+                class="theme-option"
+                data-theme="rosy">
+
+                <div class="theme-option-icon rosy-icon">
+                    🌹
+                </div>
+
+                <div class="theme-option-text">
+
+                    <strong>Rosy Pink</strong>
+
+                    <span>
+                        A deeper rosy pink vibe
+                    </span>
+
+                </div>
+
+                <div class="theme-radio">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+            </button>
+
+
+            <!-- BLUSH PINK -->
+
+            <button
+                type="button"
+                class="theme-option"
+                data-theme="blush">
+
+                <div class="theme-option-icon blush-icon">
+                    ✦
+                </div>
+
+                <div class="theme-option-text">
+
+                    <strong>Blush Pink</strong>
+
+                    <span>
+                        Warm and cozy pink tones
+                    </span>
+
+                </div>
+
+                <div class="theme-radio">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+            </button>
+
+
+            
+
+        <!-- APPLY -->
+
+        <button
+            type="button"
+            class="theme-apply-btn"
+            id="themeApplyBtn">
+
+            Apply Theme
+
+            <i class="fa-solid fa-check"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+    <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =========================================
+       ELEMENTS
+    ========================================= */
+
+    const orderNotifications =
+        document.getElementById("orderNotifications");
+
+    const offerNotifications =
+        document.getElementById("offerNotifications");
+
+    const themePickerBtn =
+        document.getElementById("themePickerBtn");
+
+    const selectedThemeName =
+        document.getElementById("selectedThemeName");
+
+    const themeModal =
+        document.getElementById("themeModal");
+
+    const themeModalClose =
+        document.getElementById("themeModalClose");
+
+    const themeApplyBtn =
+        document.getElementById("themeApplyBtn");
+
+    const themeOptions =
+        document.querySelectorAll(".theme-option");
+
+    const saveSettingsBtn =
+        document.getElementById("saveSettingsBtn");
+
+    const clearProfileBtn =
+        document.getElementById("clearProfileBtn");
+
+    const clearAddressBtn =
+        document.getElementById("clearAddressBtn");
+
+    const popup =
+        document.getElementById("settingsPopup");
+
+    const popupClose =
+        document.getElementById("settingsPopupClose");
+
+    const popupOK =
+        document.getElementById("settingsPopupOK");
+
+
+    /* =========================================
+       THEME NAMES
+    ========================================= */
+
+    const themeNames = {
+
+        light: "Light",
+
+        soft: "Soft Pink",
+
+        rosy: "Rosy Pink",
+
+        blush: "Blush Pink",
+
+        dark: "Dark Mode"
+
+    };
+
+
+    /* =========================================
+       DEFAULT SETTINGS
+    ========================================= */
+
+    const defaultSettings = {
+
+        orderNotifications: true,
+
+        offerNotifications: false,
+
+        theme: "light"
+
+    };
+
+
+    /* =========================================
+       GET SAVED SETTINGS
+    ========================================= */
+
+    function getSettings() {
+
+        const saved =
+            localStorage.getItem("aliceSettings");
+
+        if (!saved) {
+
+            return {
+                ...defaultSettings
+            };
+
+        }
+
+        try {
+
+            const settings =
+                JSON.parse(saved);
+
+            return {
+
+                orderNotifications:
+                    typeof settings.orderNotifications === "boolean"
+                        ? settings.orderNotifications
+                        : true,
+
+                offerNotifications:
+                    typeof settings.offerNotifications === "boolean"
+                        ? settings.offerNotifications
+                        : false,
+
+                theme:
+                    themeNames[settings.theme]
+                        ? settings.theme
+                        : "light"
+
+            };
+
+        } catch (error) {
+
+            console.log(
+                "Could not load saved settings."
+            );
+
+            return {
+                ...defaultSettings
+            };
+
+        }
+
+    }
+
+
+    /* =========================================
+       SAVE SETTINGS
+    ========================================= */
+
+    function saveSettings() {
+
+        const settings = {
+
+            orderNotifications:
+                orderNotifications.checked,
+
+            offerNotifications:
+                offerNotifications.checked,
+
+            theme:
+                selectedTheme
+
+        };
+
+
+        localStorage.setItem(
+            "aliceSettings",
+            JSON.stringify(settings)
+        );
+
+
+        /* Keep theme saved separately too */
+
+        localStorage.setItem(
+            "aliceTheme",
+            selectedTheme
+        );
+
+    }
+
+
+    /* =========================================
+       APPLY THEME
+    ========================================= */
+
+    function applyTheme(theme) {
+
+        document.body.classList.remove(
+
+            "theme-light",
+
+            "theme-soft",
+
+            "theme-rosy",
+
+            "theme-blush",
+
+            "theme-dark"
+
+        );
+
+
+        document.body.classList.add(
+            "theme-" + theme
+        );
+
+
+        selectedThemeName.textContent =
+            themeNames[theme] || "Light";
+
+    }
+
+
+    /* =========================================
+       LOAD SAVED SETTINGS
+    ========================================= */
+
+    let selectedTheme = "light";
+
+
+    function loadSettings() {
+
+        const settings =
+            getSettings();
+
+
+        /* Notifications */
+
+        orderNotifications.checked =
+            settings.orderNotifications;
+
+        offerNotifications.checked =
+            settings.offerNotifications;
+
+
+        /* Theme */
+
+        selectedTheme =
+            settings.theme;
+
+
+        applyTheme(
+            selectedTheme
+        );
+
+    }
+
+
+    /* =========================================
+       LOAD EVERYTHING
+    ========================================= */
+
+    loadSettings();
+
+
+    /* =========================================
+       NOTIFICATION SWITCHES
+       SAVE IMMEDIATELY
+    ========================================= */
+
+    orderNotifications.addEventListener(
+        "change",
+        function () {
+
+            saveSettings();
+
+        }
+    );
+
+
+    offerNotifications.addEventListener(
+        "change",
+        function () {
+
+            saveSettings();
+
+        }
+    );
+
+
+    /* =========================================
+       OPEN THEME PICKER
+    ========================================= */
+
+    themePickerBtn.addEventListener(
+        "click",
+        function () {
+
+            themeModal.classList.add("show");
+
+
+            /* Highlight current theme */
+
+            themeOptions.forEach(
+                function (option) {
+
+                    option.classList.remove(
+                        "selected"
+                    );
+
+
+                    if (
+                        option.dataset.theme ===
+                        selectedTheme
+                    ) {
+
+                        option.classList.add(
+                            "selected"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =========================================
+       SELECT A THEME
+    ========================================= */
+
+    themeOptions.forEach(
+        function (option) {
+
+            option.addEventListener(
+                "click",
+                function () {
+
+                    /* Remove selection */
+
+                    themeOptions.forEach(
+                        function (item) {
+
+                            item.classList.remove(
+                                "selected"
+                            );
+
+                        }
+                    );
+
+
+                    /* Select clicked theme */
+
+                    this.classList.add(
+                        "selected"
+                    );
+
+
+                    selectedTheme =
+                        this.dataset.theme;
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =========================================
+       APPLY THEME BUTTON
+    ========================================= */
+
+    themeApplyBtn.addEventListener(
+        "click",
+        function () {
+
+            /* Apply immediately */
+
+            applyTheme(
+                selectedTheme
+            );
+
+
+            /* Save it */
+
+            saveSettings();
+
+
+            /* Close theme popup */
+
+            themeModal.classList.remove(
+                "show"
+            );
+
+
+            /* Show success message */
+
+            showPopup();
+
+        }
+    );
+
+
+    /* =========================================
+       CLOSE THEME POPUP
+    ========================================= */
+
+    themeModalClose.addEventListener(
+        "click",
+        function () {
+
+            themeModal.classList.remove(
+                "show"
+            );
+
+        }
+    );
+
+
+    /* =========================================
+       CLOSE THEME POPUP
+       WHEN BACKGROUND IS PRESSED
+    ========================================= */
+
+    themeModal.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target === themeModal
+            ) {
+
+                themeModal.classList.remove(
+                    "show"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       SAVE SETTINGS BUTTON
+    ========================================= */
+
+    saveSettingsBtn.addEventListener(
+        "click",
+        function () {
+
+            saveSettings();
+
+            showPopup();
+
+        }
+    );
+
+
+    /* =========================================
+       SUCCESS POPUP
+    ========================================= */
+
+    function showPopup() {
+
+        popup.classList.add(
+            "show"
+        );
+
+    }
+
+
+    function closePopup() {
+
+        popup.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    popupClose.addEventListener(
+        "click",
+        closePopup
+    );
+
+
+    popupOK.addEventListener(
+        "click",
+        closePopup
+    );
+
+
+    popup.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target === popup
+            ) {
+
+                closePopup();
+
+            }
+
+        }
+    );
+
+
+/* =========================================
+   CLEAR CONFIRMATION POPUP
+   ========================================= */
+
+const clearConfirmModal =
+    document.getElementById("clearConfirmModal");
+
+const clearConfirmClose =
+    document.getElementById("clearConfirmClose");
+
+const clearNoBtn =
+    document.getElementById("clearNoBtn");
+
+const clearYesBtn =
+    document.getElementById("clearYesBtn");
+
+const clearConfirmTitle =
+    document.getElementById("clearConfirmTitle");
+
+const clearConfirmText =
+    document.getElementById("clearConfirmText");
+
+
+let clearType = "";
+
+
+/* =========================================
+   OPEN CLEAR CONFIRMATION
+   ========================================= */
+
+function openClearConfirmation(type) {
+
+    clearType = type;
+
+
+    if (type === "profile") {
+
+        clearConfirmTitle.textContent =
+            "Clear Saved Profile?";
+
+        clearConfirmText.textContent =
+            "Are you sure you want to clear your saved profile information? This action cannot be undone.";
+
+    }
+
+
+    if (type === "address") {
+
+        clearConfirmTitle.textContent =
+            "Clear Delivery Address?";
+
+        clearConfirmText.textContent =
+            "Are you sure you want to clear your saved delivery address? This action cannot be undone.";
+
+    }
+
+
+    clearConfirmModal.classList.add("show");
+
+}
+
+
+/* =========================================
+   CLOSE CLEAR CONFIRMATION
+   ========================================= */
+
+function closeClearConfirmation() {
+
+    clearConfirmModal.classList.remove("show");
+
+    clearType = "";
+
+}
+
+
+/* =========================================
+   CLEAR PROFILE BUTTON
+   ========================================= */
+
+clearProfileBtn.addEventListener(
+    "click",
+    function () {
+
+        openClearConfirmation("profile");
+
+    }
+);
+
+
+/* =========================================
+   CLEAR ADDRESS BUTTON
+   ========================================= */
+
+clearAddressBtn.addEventListener(
+    "click",
+    function () {
+
+        openClearConfirmation("address");
+
+    }
+);
+
+
+/* =========================================
+   YES — CLEAR
+   ========================================= */
+
+clearYesBtn.addEventListener(
+    "click",
+    function () {
+
+        let message = "";
+
+        /* CLEAR PROFILE */
+
+        if (clearType === "profile") {
+
+            localStorage.removeItem("aliceProfile");
+
+            message =
+                "Your saved profile has been cleared successfully.";
+
+        }
+
+
+        /* CLEAR DELIVERY ADDRESS */
+
+        if (clearType === "address") {
+
+            localStorage.removeItem(
+                "aliceDeliveryAddress"
+            );
+
+            message =
+                "Your saved delivery address has been cleared successfully.";
+
+        }
+
+
+        /* CLOSE CONFIRMATION POPUP */
+
+        clearConfirmModal.classList.remove("show");
+
+
+        /* RESET TYPE */
+
+        clearType = "";
+
+
+        /* SHOW SUCCESS MESSAGE */
+
+        setTimeout(function () {
+
+            showClearMessage(message);
+
+        }, 300);
+
+    }
+);
+
+
+/* =========================================
+   NO — KEEP IT
+   ========================================= */
+
+clearNoBtn.addEventListener(
+    "click",
+    function () {
+
+        closeClearConfirmation();
+
+    }
+);
+
+
+/* =========================================
+   CLOSE WITH X
+   ========================================= */
+
+clearConfirmClose.addEventListener(
+    "click",
+    function () {
+
+        closeClearConfirmation();
+
+    }
+);
+
+
+/* =========================================
+   CLOSE WHEN BACKGROUND IS PRESSED
+   ========================================= */
+
+clearConfirmModal.addEventListener(
+    "click",
+    function (event) {
+
+        if (event.target === clearConfirmModal) {
+
+            closeClearConfirmation();
+
+        }
+
+    }
+);
+
+    /* =========================================
+       CLEAR MESSAGE
+    ========================================= */
+
+    function showClearMessage(message) {
+
+        const oldMessage =
+            document.querySelector(
+                ".settings-clear-message"
+            );
+
+
+        if (oldMessage) {
+            oldMessage.remove();
+        }
+
+
+        const messageBox =
+            document.createElement("div");
+
+
+        messageBox.className =
+            "settings-clear-message";
+
+
+        messageBox.innerHTML = `
+
+            <div class="settings-clear-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <div>
+                <strong>Done!</strong>
+
+                <span>${message}</span>
+            </div>
+
+            <button
+                type="button"
+                class="settings-clear-close">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        `;
+
+
+        document.body.appendChild(
+            messageBox
+        );
+
+
+        setTimeout(
+            function () {
+
+                messageBox.classList.add(
+                    "show"
+                );
+
+            },
+            20
+        );
+
+
+        const closeButton =
+            messageBox.querySelector(
+                ".settings-clear-close"
+            );
+
+
+        closeButton.addEventListener(
+            "click",
+            function () {
+
+                messageBox.classList.remove(
+                    "show"
+                );
+
+                setTimeout(
+                    function () {
+
+                        messageBox.remove();
+
+                    },
+                    300
+                );
+
+            }
+        );
+
+
+        setTimeout(
+            function () {
+
+                if (
+                    messageBox.parentElement
+                ) {
+
+                    messageBox.classList.remove(
+                        "show"
+                    );
+
+                    setTimeout(
+                        function () {
+
+                            if (
+                                messageBox.parentElement
+                            ) {
+
+                                messageBox.remove();
+
+                            }
+
+                        },
+                        300
+                    );
+
+                }
+
+            },
+            3000
+        );
+
+    }
+
+});
+
+    </script>
+
+</body>
+
+</html>

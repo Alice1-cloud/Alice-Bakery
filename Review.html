@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reviews | Alice's Bakery</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- BACK TO HOME -->
+
+    <a href="index.html" class="reviews-back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Home
+    </a>
+
+
+    <!-- REVIEWS HERO -->
+
+    <section class="reviews-hero">
+
+        <p class="section-label">
+            ✦ SWEET WORDS FROM OUR CUSTOMERS ✦
+        </p>
+
+        <h1>
+            What Our Customers<br>
+            <span>Have to Say</span>
+        </h1>
+
+        <div class="reviews-divider">
+            <span></span>
+            <i class="fa-solid fa-heart"></i>
+            <span></span>
+        </div>
+
+        <p>
+            Nothing makes us happier than knowing our cakes
+            helped make someone's special moment even sweeter.
+        </p>
+
+    </section>
+
+
+    <!-- REVIEW SUMMARY -->
+
+    <section class="review-summary">
+
+        <div class="rating-box">
+
+            <strong>5.0</strong>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                Based on our happy customers
+            </p>
+
+        </div>
+
+
+        <div class="review-stat">
+
+            <i class="fa-solid fa-cake-candles"></i>
+
+            <strong>100+</strong>
+
+            <span>
+                Cakes Baked
+            </span>
+
+        </div>
+
+
+        <div class="review-stat">
+
+            <i class="fa-solid fa-heart"></i>
+
+            <strong>98%</strong>
+
+            <span>
+                Happy Customers
+            </span>
+
+        </div>
+
+
+        <div class="review-stat">
+
+            <i class="fa-solid fa-star"></i>
+
+            <strong>5★</strong>
+
+            <span>
+                Average Rating
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- CUSTOMER REVIEWS -->
+
+    <section class="reviews-section">
+
+        <p class="section-label">
+            CUSTOMER LOVE
+        </p>
+
+        <h2>
+            Sweet Words From Sweet People
+        </h2>
+
+        <div class="reviews-divider">
+            <span></span>
+            <i class="fa-solid fa-heart"></i>
+            <span></span>
+        </div>
+
+
+        <div class="reviews-grid">
+
+
+            <!-- REVIEW 1 -->
+
+            <article class="review-card">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p class="review-text">
+                    "The cake was absolutely beautiful and tasted
+                    even better than it looked! Everyone at the
+                    party loved it."
+                </p>
+
+                <div class="review-author">
+
+                    <div class="review-avatar">
+                        A
+                    </div>
+
+                    <div>
+                        <h3>
+                            Amara
+                        </h3>
+
+                        <span>
+                            Birthday Customer
+                        </span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- REVIEW 2 -->
+
+            <article class="review-card">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p class="review-text">
+                    "Alice's Bakery did such an amazing job with
+                    our wedding cake. It looked gorgeous and
+                    tasted incredible."
+                </p>
+
+                <div class="review-author">
+
+                    <div class="review-avatar">
+                        J
+                    </div>
+
+                    <div>
+                        <h3>
+                            Jessica
+                        </h3>
+
+                        <span>
+                            Wedding Customer
+                        </span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- REVIEW 3 -->
+
+            <article class="review-card">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p class="review-text">
+                    "I ordered a custom cake and the result was
+                    exactly what I imagined. The attention to
+                    detail was amazing!"
+                </p>
+
+                <div class="review-author">
+
+                    <div class="review-avatar">
+                        D
+                    </div>
+
+                    <div>
+                        <h3>
+                            Daniel
+                        </h3>
+
+                        <span>
+                            Custom Order Customer
+                        </span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- REVIEW 4 -->
+
+            <article class="review-card">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p class="review-text">
+                    "Fresh, delicious and beautifully decorated.
+                    Alice's Bakery has definitely become my
+                    favourite place for cakes!"
+                </p>
+
+                <div class="review-author">
+
+                    <div class="review-avatar">
+                        S
+                    </div>
+
+                    <div>
+                        <h3>
+                            Sarah
+                        </h3>
+
+                        <span>
+                            Happy Customer
+                        </span>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- LEAVE A REVIEW -->
+
+    <section class="leave-review">
+
+        <p class="section-label">
+            YOUR EXPERIENCE MATTERS
+        </p>
+
+        <h2>
+            Loved Your Cake?
+        </h2>
+
+        <p>
+            We'd love to hear about your experience with
+            Alice's Bakery.
+        </p>
+
+         <div class="review-form-wrapper">
+
+    <form id="reviewForm" class="review-form">
+
+        <div class="form-group">
+            <label for="reviewName">Your Name</label>
+
+            <input
+                type="text"
+                id="reviewName"
+                placeholder="Enter your name"
+                required
+            >
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Your Rating</label>
+
+            <div class="rating-input">
+
+                <button type="button" data-rating="1">★</button>
+                <button type="button" data-rating="2">★</button>
+                <button type="button" data-rating="3">★</button>
+                <button type="button" data-rating="4">★</button>
+                <button type="button" data-rating="5">★</button>
+
+            </div>
+
+            <input
+                type="hidden"
+                id="reviewRating"
+                value="0"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="reviewMessage">
+                Your Review
+            </label>
+
+            <textarea
+                id="reviewMessage"
+                rows="5"
+                placeholder="Tell us about your experience..."
+                required
+            ></textarea>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="submit-review-btn">
+
+            SUBMIT REVIEW
+            <i class="fa-solid fa-heart"></i>
+
+        </button>
+
+    </form>
+
+
+    <!-- SUCCESS MESSAGE -->
+
+  <div
+    id="reviewSuccess"
+    class="review-success">
+
+    <div class="success-icon">
+        <i class="fa-solid fa-heart"></i>
+    </div>
+
+    <h3>Thank You! ♡</h3>
+
+    <p>
+        Your sweet review has been received.
+        We really appreciate your kind words!
+    </p>
+
+    <button
+        type="button"
+        class="review-ok-btn"
+        onclick="closeReviewSuccess()">
+
+        OKAY
+
+        <i class="fa-solid fa-heart"></i>
+
+    </button>
+
+</div>
+           
+    </section>
+
+       <script>
+
+const ratingButtons =
+    document.querySelectorAll(".rating-input button");
+
+const ratingInput =
+    document.getElementById("reviewRating");
+
+
+/* =========================
+   STAR RATING
+========================= */
+
+ratingButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const rating =
+            Number(this.dataset.rating);
+
+        ratingInput.value = rating;
+
+
+        ratingButtons.forEach(function(star) {
+
+            const starNumber =
+                Number(star.dataset.rating);
+
+            if (starNumber <= rating) {
+
+                star.classList.add("selected");
+
+            } else {
+
+                star.classList.remove("selected");
+
+            }
+
+        });
+
+    });
+
+});
+
+
+/* =========================
+   REVIEW SUBMISSION
+========================= */
+
+const reviewForm =
+    document.getElementById("reviewForm");
+
+const reviewSuccess =
+    document.getElementById("reviewSuccess");
+
+
+reviewForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const name =
+        document.getElementById("reviewName").value.trim();
+
+    const review =
+        document.getElementById("reviewMessage").value.trim();
+
+    const rating =
+        Number(ratingInput.value);
+
+
+    /* CHECK RATING */
+
+  if (rating === 0) {
+
+    showRatingMessage();
+
+    return;
+
+}
+
+
+    /* SAVE REVIEW */
+
+    const reviews =
+        JSON.parse(
+            localStorage.getItem("customerReviews")
+        ) || [];
+
+
+    reviews.push({
+
+        name: name,
+
+        review: review,
+
+        rating: rating
+
+    });
+
+
+    localStorage.setItem(
+        "customerReviews",
+        JSON.stringify(reviews)
+    );
+
+
+    /* HIDE FORM */
+
+    reviewForm.style.display = "none";
+
+
+    /* SHOW SUCCESS */
+
+    reviewSuccess.style.display = "block";
+
+
+});
+
+        /* =========================
+   RATING REQUIRED MESSAGE
+========================= */
+
+function showRatingMessage() {
+
+    const message = document.createElement("div");
+
+    message.className = "rating-popup";
+
+    message.innerHTML = `
+
+        <div class="rating-popup-card">
+
+            <button
+                class="rating-popup-close"
+                onclick="this.closest('.rating-popup').remove()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="rating-popup-icon">
+                <i class="fa-solid fa-star"></i>
+            </div>
+
+            <h3>Rating Required ♡</h3>
+
+            <p>
+                Please choose a star rating
+                before submitting your review.
+            </p>
+
+            <button
+                class="rating-popup-btn"
+                onclick="this.closest('.rating-popup').remove()">
+                OK, GOT IT
+            </button>
+
+        </div>
+
+    `;
+
+    document.body.appendChild(message);
+
+}
+
+ 
+  /* =========================
+   CLOSE SUCCESS MESSAGE
+========================= */
+
+function closeReviewSuccess() {
+
+    // Hide success message
+    reviewSuccess.style.display = "none";
+
+    // Bring the form back
+    reviewForm.style.display = "block";
+
+    // Clear all form boxes
+    reviewForm.reset();
+
+    // Reset rating
+    ratingInput.value = 0;
+
+    // Remove selected stars
+    ratingButtons.forEach(function(star) {
+
+        star.classList.remove("selected");
+
+    });
+
+}       
+
+</script>
+
+
+</body>
+
+</html>
